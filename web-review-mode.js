@@ -188,6 +188,11 @@
       .wr-notice { font-size: 11px; color: ${TEAL}; margin-top: 8px; text-align: right; min-height: 16px; }
       .wr-notice.wr-warn { color: #F59E0B; }
 
+      @media (max-width: 768px) {
+        #wr-bar { bottom: 72px; }
+        #wr-settings { bottom: 128px; }
+      }
+
       #wr-settings {
         position: fixed; bottom: 60px; right: 16px;
         background: ${NAVY}; color: ${LIGHT}; border-radius: 12px;
