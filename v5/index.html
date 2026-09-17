@@ -105,6 +105,9 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
   border-radius:7px;border:1px solid var(--border);overflow:hidden;
 }
 .prow .pp{padding:13px 18px;font-size:13px;color:var(--navy)}
+.prow .pp-col{display:flex;flex-direction:column}
+.prow .pp-col .pp{padding-bottom:2px}
+.prow .pp-desc{padding:0 18px 10px;font-size:10px;color:#6B7280;max-width:170px;line-height:1.35}
 .prow .pa{color:var(--red);font-size:14px;text-align:center}
 .prow .ps{padding:13px 18px}
 .prow .ps-lbl{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:1px}
@@ -282,7 +285,7 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
         <span style="height:24px"></span><span style="height:14px"></span><span style="height:18px"></span>
       </div>
       <div class="port-title">Proyecto Her</div>
-      <div class="port-sub">¿Qué está ocurriendo en el equipo?</div>
+      <div class="port-sub">Realidad percibida accionable</div>
       <svg width="110" height="22" viewBox="0 0 110 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/>
         <polygon points="8,5 14,11 8,17" fill="#7a1f16"/>
@@ -329,10 +332,10 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
     <div style="padding:80px;display:flex;flex-direction:column;justify-content:center;width:100%">
       <div class="big">
         <span class="accent" style="color:var(--red)">Visibilizar y compartir</span><br>
-        el conocimiento de<br>cada persona de la<br>organización.
+        el conocimiento de negocio<br>de cada individuo<br>de la organización.
       </div>
       <p class="body" style="max-width:380px;margin-top:24px">
-        Convertir el conocimiento diario del equipo — lo que percibe y lo que sabe — en inteligencia colectiva.
+        Un experimento para convertir ese conocimiento en inteligencia colectiva — de modo replicable y bajo cumplimiento normativo.
       </p>
     </div>
   </section>
@@ -353,8 +356,8 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
       </ul>
     </div>
     <div class="s4r" style="padding:80px 56px 56px 16px">
-      <div class="prow"><div class="pp">Relatividad</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Priorización</div></div></div>
-      <div class="prow"><div class="pp">Inconstancia</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Determinismo</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp">Relatividad</div><div class="pp-desc">Cada persona asigna una importancia a cada tema de modo subjetivo</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Priorización</div></div></div>
+      <div class="prow"><div class="pp">Intermitente</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Determinismo</div></div></div>
       <div class="prow"><div class="pp">Idiomas</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Multiidioma nativo</div></div></div>
       <div class="prow"><div class="pp">Husos horarios</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Asincronía</div></div></div>
       <div class="prow"><div class="pp">Cultura</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Tropicalización</div></div></div>
@@ -452,7 +455,7 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
       <p class="body" style="margin-top:16px">Cada persona de la organización tiene su propio agente. Cada día mantiene con ella una conversación breve — en su idioma, a su ritmo — y recoge lo que está viviendo en el trabajo.</p>
     </div>
     <div class="s6r" style="padding:80px 56px 56px 16px">
-      <div class="q-sup">Lo que pregunta el agente</div>
+      <div class="q-sup">Lo que pregunta el agente <span style="font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-left:8px;opacity:.8">· Transcripción real</span></div>
       <div class="qlist">
         <div class="qi"><span class="qt">«¿En qué has trabajado hoy?»</span><span class="qtag">— actividad</span></div>
         <div class="qi"><span class="qt">«¿Tienes algo bloqueado?»</span><span class="qtag">— bloqueos</span></div>
@@ -514,7 +517,7 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
           <div class="rc-b">Recupera solo lo relevante y lo sintetiza — <strong>reconstruyó una decisión repartida en 3 fechas</strong>.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Inconstancia <span class="arr">→</span> Determinismo</div></div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Intermitente <span class="arr">→</span> Determinismo</div></div>
           <div class="rc-b">Respuestas consistentes y trazables — <strong>5 de 5 intentos de invención rechazados</strong>.</div>
         </div>
         <div class="rc">
@@ -527,7 +530,7 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
         </div>
         <div class="rc">
           <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Cultura <span class="arr">→</span> Tropicalización</div></div>
-          <div class="rc-b">Voz y modismos nativos por región — <strong>mexicano, argentino, español y más</strong>, adaptado a su contexto cultural.</div>
+          <div class="rc-b">Voz y modismos nativos por región — <strong>argentino, español y más variedades del español</strong>, adaptado a su contexto cultural.</div>
         </div>
         <div class="rc">
           <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Pérdida <span class="arr">→</span> Transferencia estructurada</div></div>
