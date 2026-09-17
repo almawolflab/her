@@ -243,12 +243,10 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 .qr-img img{width:100%;height:100%;object-fit:contain;border-radius:4px}
 .qr-name{font-size:15px;font-weight:600;color:var(--navy)}
 .qr-role{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-top:4px}
-.transcript{background:var(--navy);border-radius:10px;padding:18px 22px;margin:20px 0 4px;max-width:640px;width:100%}
-.transcript-lbl{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#5FD3B8;font-weight:700;margin-bottom:10px}
-.tr-line{display:flex;gap:10px;margin-bottom:6px;align-items:baseline}
-.tr-who{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;min-width:64px;flex-shrink:0}
-.tr-who.ag{color:#5FD3B8}.tr-who.us{color:#9CA3AF}
-.tr-text{font-size:11.5px;color:#EDECEB;line-height:1.5}
+.tr-line{display:flex;gap:10px;margin-bottom:5px;align-items:baseline}
+.tr-who{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;min-width:58px;flex-shrink:0;padding-top:2px}
+.tr-who.ag{color:var(--red)}.tr-who.us{color:var(--gray)}
+.tr-text{font-size:11.5px;color:var(--navy);line-height:1.45;font-style:italic}
 
 .qr-bg{position:absolute;bottom:0;left:0;pointer-events:none}
 
@@ -461,13 +459,16 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
       <p class="body" style="margin-top:16px">Cada persona de la organización tiene su propio agente. Cada día mantiene con ella una conversación breve — en su idioma, a su ritmo — y recoge lo que está viviendo en el trabajo.</p>
     </div>
     <div class="s6r" style="padding:80px 56px 56px 16px">
-      <div class="q-sup">Lo que pregunta el agente <span style="font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-left:8px;opacity:.8">· Transcripción real</span></div>
-      <div class="qlist">
-        <div class="qi"><span class="qt">«¿Desde dónde trabajaste hoy y en qué horario?»</span><span class="qtag">— modalidad / horario</span></div>
-        <div class="qi"><span class="qt">«¿En qué estuviste trabajando hoy? ¿Algún proyecto específico?»</span><span class="qtag">— actividad</span></div>
-        <div class="qi"><span class="qt">«Cuéntame más de las reuniones o conversaciones que tuviste, ¿con quién fuiste hablando sobre esto?»</span><span class="qtag">— personas / reuniones</span></div>
-        <div class="qi"><span class="qt">«¿Algún bloqueo o pendiente del que necesites apoyo?»</span><span class="qtag">— bloqueos / pendientes</span></div>
-        <div class="qi"><span class="qt">«¿Algo más que quieras reportar?»</span><span class="qtag">— cierre</span></div>
+      <div class="q-sup">Transcripción real · Piloto agosto 2026</div>
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px">
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Hola, [Empleada]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Sí.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">¿Desde dónde trabajaste hoy y en qué horario?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">De ocho y media.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Entendido, desde casa. ¿En qué estuviste trabajando hoy? ¿Algún proyecto específico?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Me ocupó bastante el proyecto de catálogos de [la plataforma], subiendo los artículos de un cliente. También atendí el inbox y consultas en tickets.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Vaya, se nota que sobre ese proyecto: ¿qué tipo de artículos y por qué se rechazan?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Son productos del todo con las políticas de [la plataforma]; hay que ajustar cómo los presentamos para que los acepten.</span></div>
       </div>
     </div>
   </section>
@@ -708,17 +709,6 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
     <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%">
       <div class="qr-h">Prueba los agentes tú mismo.</div>
       <div class="qr-sub">Habla con <span>Her</span> — apunta con la cámara y empieza.</div>
-      <div class="transcript">
-        <div class="transcript-lbl">Transcripción real · anonimizada</div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Hola, [Empleada]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Sí.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">¿Desde dónde trabajaste hoy y en qué horario?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">De ocho y media.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Entendido, desde casa. ¿En qué estuviste trabajando hoy? ¿Algún proyecto específico?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Me ocupó bastante el proyecto de catálogos de [la plataforma], subiendo los artículos de un cliente. También atendí el inbox y consultas en tickets.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Vaya, se nota que sobre ese proyecto: ¿qué tipo de artículos y por qué se rechazan?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Son productos del todo con las políticas de [la plataforma]; hay que ajustar cómo los presentamos para que los acepten.</span></div>
-      </div>
       <div class="qr-cards">
         <div class="qr-card">
           <div class="qr-img"><!-- QR Burton --><span>QR pendiente</span></div>
