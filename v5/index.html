@@ -270,6 +270,10 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 .nav button:hover{color:#fff}
 .nav .cnt{min-width:44px;text-align:center;color:rgba(255,255,255,.5);font-size:11px}
 .nav .kh{font-size:10px;color:rgba(255,255,255,.3);margin-left:4px}
+.nav .lang-sep{width:1px;height:16px;background:rgba(255,255,255,.2);margin:0 6px}
+#lang-toggle{background:none;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.75);cursor:pointer;padding:2px 8px;font-size:10px;border-radius:10px;letter-spacing:.08em;font-family:var(--f);transition:all .15s}
+#lang-toggle:hover{border-color:#fff;color:#fff}
+#lang-toggle.en{border-color:#C13B2F;color:#C13B2F}
 </style>
 </head>
 <body>
@@ -290,8 +294,8 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
         <span style="height:16px"></span><span style="height:28px"></span><span style="height:20px"></span>
         <span style="height:24px"></span><span style="height:14px"></span><span style="height:18px"></span>
       </div>
-      <div class="port-title">Proyecto Her</div>
-      <div class="port-sub">Realidad percibida accionable</div>
+      <div class="port-title" data-i18n="port.title">Proyecto Her</div>
+      <div class="port-sub" data-i18n="port.sub">Realidad percibida accionable</div>
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/>
         <polygon points="8,5 14,11 8,17" fill="#7a1f16"/>
@@ -303,29 +307,29 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 
   <!-- ── S2 ÍNDICE ── -->
   <section class="slide bg-l" id="s2">
-    <div class="lbl"><span class="d"></span>Índice</div>
+    <div class="lbl"><span class="d"></span><span data-i18n="idx.lbl">Índice</span></div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="padding:80px 80px 60px;width:100%;display:flex;flex-direction:column;justify-content:space-between">
-      <div class="d2" style="margin-top:20px">Lo que vamos a ver.</div>
+      <div class="d2" style="margin-top:20px" data-i18n="idx.intro">Lo que vamos a ver.</div>
       <div class="idx-grid">
         <div>
-          <div class="idx-row"><span class="idx-n">01</span>El objetivo</div>
-          <div class="idx-row"><span class="idx-n">02</span>Problemas y soluciones</div>
-          <div class="idx-row"><span class="idx-n">03</span>Arquitectura</div>
-          <div class="idx-row"><span class="idx-n">04</span>Agente de check-in</div>
-          <div class="idx-row"><span class="idx-n">05</span>Agente de consulta</div>
-          <div class="idx-row"><span class="idx-n">06</span>Resultados del experimento</div>
-          <div class="idx-row"><span class="idx-n">07</span>Resultados del piloto</div>
+          <div class="idx-row"><span class="idx-n">01</span><span data-i18n="idx.01">El objetivo</span></div>
+          <div class="idx-row"><span class="idx-n">02</span><span data-i18n="idx.02">Problemas y soluciones</span></div>
+          <div class="idx-row"><span class="idx-n">03</span><span data-i18n="idx.03">Arquitectura</span></div>
+          <div class="idx-row"><span class="idx-n">04</span><span data-i18n="idx.04">Agente de check-in</span></div>
+          <div class="idx-row"><span class="idx-n">05</span><span data-i18n="idx.05">Agente de consulta</span></div>
+          <div class="idx-row"><span class="idx-n">06</span><span data-i18n="idx.06">Resultados del experimento</span></div>
+          <div class="idx-row"><span class="idx-n">07</span><span data-i18n="idx.07">Resultados del piloto</span></div>
         </div>
         <div>
-          <div class="idx-row"><span class="idx-n">08</span>Lo que hemos corregido</div>
-          <div class="idx-row"><span class="idx-n">09</span>Riesgos y mitigaciones</div>
-          <div class="idx-row"><span class="idx-n">10</span>Aprendizajes</div>
-          <div class="idx-row"><span class="idx-n">11</span>Siguientes fases</div>
-          <div class="idx-row"><span class="idx-n">12</span>Equipo</div>
-          <div class="idx-row"><span class="idx-n">13</span>QR</div>
+          <div class="idx-row"><span class="idx-n">08</span><span data-i18n="idx.08">Lo que hemos corregido</span></div>
+          <div class="idx-row"><span class="idx-n">09</span><span data-i18n="idx.09">Riesgos y mitigaciones</span></div>
+          <div class="idx-row"><span class="idx-n">10</span><span data-i18n="idx.10">Aprendizajes</span></div>
+          <div class="idx-row"><span class="idx-n">11</span><span data-i18n="idx.11">Siguientes fases</span></div>
+          <div class="idx-row"><span class="idx-n">12</span><span data-i18n="idx.12">Equipo</span></div>
+          <div class="idx-row"><span class="idx-n">13</span><span data-i18n="idx.13">QR</span></div>
         </div>
       </div>
       <div></div>
@@ -334,16 +338,16 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 
   <!-- ── S3 OBJETIVO ── -->
   <section class="slide bg-l" id="s3">
-    <div class="lbl"><span class="d"></span>El objetivo</div>
+    <div class="lbl"><span class="d"></span><span data-i18n="s3.lbl">El objetivo</span></div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="padding:80px;display:flex;flex-direction:column;justify-content:center;width:100%">
-      <div class="big">
+      <div class="big" data-i18n-html="s3.big">
         <span class="accent" style="color:var(--red)">Visibilizar y compartir</span><br>
         el conocimiento de negocio<br>de cada individuo<br>de la organización.
       </div>
-      <p class="body" style="max-width:380px;margin-top:24px">
+      <p class="body" style="max-width:380px;margin-top:24px" data-i18n="s3.body">
         Un experimento para convertir ese conocimiento en inteligencia colectiva — de modo replicable y bajo cumplimiento normativo.
       </p>
     </div>
@@ -351,63 +355,63 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 
   <!-- ── S4 EL PROBLEMA ── -->
   <section class="slide bg-l" id="s4">
-    <div class="lbl"><span class="d"></span>El problema</div>
+    <div class="lbl"><span class="d"></span><span data-i18n="s4.lbl">El problema</span></div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div class="s4l" style="padding-top:72px;padding-left:56px">
-      <div class="d2" style="font-size:clamp(22px,2.8vw,40px);line-height:1.15">El conocimiento se evapora cada día.</div>
-      <p class="body" style="margin-top:10px">Muere en reuniones, llamadas y correos…</p>
+      <div class="d2" style="font-size:clamp(22px,2.8vw,40px);line-height:1.15" data-i18n="s4.title">El conocimiento se evapora cada día.</div>
+      <p class="body" style="margin-top:10px" data-i18n="s4.sub">Muere en reuniones, llamadas y correos…</p>
       <ul class="dl" style="margin-top:20px">
-        <li>El manager no ve qué hizo su equipo sin preguntar.</li>
-        <li>El CEO no tiene visión de grupo sin una reunión.</li>
-        <li>Hay experiencias que no tienen dónde registrarse y no dejan rastro.</li>
+        <li data-i18n="s4.li1">El manager no ve qué hizo su equipo sin preguntar.</li>
+        <li data-i18n="s4.li2">El CEO no tiene visión de grupo sin una reunión.</li>
+        <li data-i18n="s4.li3">Hay experiencias que no tienen dónde registrarse y no dejan rastro.</li>
       </ul>
     </div>
     <div class="s4r" style="padding:80px 56px 56px 16px">
-      <div class="prow"><div class="pp-col"><div class="pp">Relatividad</div><div class="pp-desc">Cada persona asigna una importancia a cada tema de modo subjetivo</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Priorización</div></div></div>
-      <div class="prow"><div class="pp">Intermitente</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Determinismo</div></div></div>
-      <div class="prow"><div class="pp">Idiomas</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Multiidioma nativo</div></div></div>
-      <div class="prow"><div class="pp">Husos horarios</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Asincronía</div></div></div>
-      <div class="prow"><div class="pp">Cultura</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Tropicalización</div></div></div>
-      <div class="prow"><div class="pp">Pérdida de conocimiento</div><div class="pa">→</div><div class="ps"><div class="ps-lbl">Solución</div><div class="ps-txt">Transferencia estructurada</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="s4.p1">Relatividad</div><div class="pp-desc" data-i18n="s4.p1desc">Cada persona asigna una importancia a cada tema de modo subjetivo</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s1">Priorización</div></div></div>
+      <div class="prow"><div class="pp" data-i18n="s4.p2">Intermitente</div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s2">Determinismo</div></div></div>
+      <div class="prow"><div class="pp" data-i18n="s4.p3">Idiomas</div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s3">Multiidioma nativo</div></div></div>
+      <div class="prow"><div class="pp" data-i18n="s4.p4">Husos horarios</div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s4">Asincronía</div></div></div>
+      <div class="prow"><div class="pp" data-i18n="s4.p5">Cultura</div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s5">Tropicalización</div></div></div>
+      <div class="prow"><div class="pp" data-i18n="s4.p6">Pérdida de conocimiento</div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s6">Transferencia estructurada</div></div></div>
     </div>
   </section>
 
   <!-- ── S5 ARQUITECTURA ── -->
   <section class="slide bg-l" id="s5">
-    <div class="lbl plain" style="top:28px;left:44px;letter-spacing:.2em">Arquitectura</div>
+    <div class="lbl plain" style="top:28px;left:44px;letter-spacing:.2em" data-i18n="s5.lbl">Arquitectura</div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="width:100%;display:flex;flex-direction:column;padding:60px 72px 48px">
-      <div class="arch-h" style="margin-top:20px">Dos tipos de agentes, una misma base de conocimiento.</div>
-      <div class="arch-sub body">Los agentes de check-in capturan lo que el equipo sabe; los de consulta responden a partir de ahí, sobre esa misma base compartida.</div>
+      <div class="arch-h" style="margin-top:20px" data-i18n="s5.title">Dos tipos de agentes, una misma base de conocimiento.</div>
+      <div class="arch-sub body" data-i18n="s5.sub">Los agentes de check-in capturan lo que el equipo sabe; los de consulta responden a partir de ahí, sobre esa misma base compartida.</div>
 
       <div class="arch-wrap">
         <!-- USER -->
         <div class="a-actor">
           <div class="a-icon">👤</div>
-          <div class="a-lbl">User</div>
+          <div class="a-lbl" data-i18n="s5.user">User</div>
         </div>
         <!-- Reports arrow -->
         <div class="a-arr" style="flex-direction:column-reverse">
-          <div class="a-arr-lbl">Reports</div>
+          <div class="a-arr-lbl" data-i18n="s5.reports">Reports</div>
           <div class="a-arr-ln"></div>
         </div>
         <!-- Check-in agent -->
         <div class="a-box">
           <div class="a-ico">💬</div>
-          <div class="a-ttl">Check-in<br>Agent</div>
+          <div class="a-ttl" data-i18n-html="s5.checkin">Check-in<br>Agent</div>
         </div>
         <!-- Summary dashed -->
         <div style="display:flex;flex-direction:column;align-items:center;padding:0 14px;gap:3px">
-          <div class="a-dash-lbl" style="font-size:10px;color:var(--gray)">Summary</div>
+          <div class="a-dash-lbl" style="font-size:10px;color:var(--gray)" data-i18n="s5.summary">Summary</div>
           <div style="width:52px;border-top:1.5px dashed var(--gray)"></div>
         </div>
         <!-- Writes arrow -->
         <div class="a-arr">
-          <div class="a-arr-lbl">Writes</div>
+          <div class="a-arr-lbl" data-i18n="s5.writes">Writes</div>
           <div class="a-arr-ln"></div>
         </div>
         <!-- Knowledge base -->
@@ -421,131 +425,131 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
             <line x1="48" y1="9" x2="48" y2="35" stroke="#1C1C2E" stroke-width="1.5"/>
             <ellipse cx="26" cy="9" rx="22" ry="7" fill="none" stroke="#1C1C2E" stroke-width="1.5"/>
           </svg>
-          <div class="a-db-lbl">Knowledge base</div>
+          <div class="a-db-lbl" data-i18n="s5.kb">Knowledge base</div>
         </div>
         <!-- Reads arrow -->
         <div class="a-arr">
-          <div class="a-arr-lbl" style="color:var(--red)">Reads</div>
+          <div class="a-arr-lbl" style="color:var(--red)" data-i18n="s5.reads">Reads</div>
           <div class="a-arr-ln r"></div>
         </div>
         <!-- Query agent -->
         <div class="a-box">
           <div class="a-ico">🔍</div>
-          <div class="a-ttl">Query<br>Agent</div>
+          <div class="a-ttl" data-i18n-html="s5.query">Query<br>Agent</div>
         </div>
         <!-- Answer dashed -->
         <div style="display:flex;flex-direction:column;align-items:center;padding:0 14px;gap:3px">
-          <div class="a-dash-lbl" style="font-size:10px;color:var(--red)">Answer</div>
+          <div class="a-dash-lbl" style="font-size:10px;color:var(--red)" data-i18n="s5.answer">Answer</div>
           <div style="width:52px;border-top:1.5px dashed var(--red)"></div>
-          <div class="a-dash-lbl" style="font-size:10px;color:var(--gray)">Asks</div>
+          <div class="a-dash-lbl" style="font-size:10px;color:var(--gray)" data-i18n="s5.asks">Asks</div>
         </div>
         <!-- MANAGER -->
         <div class="a-actor">
           <div class="a-icon">👤</div>
-          <div class="a-lbl">Manager</div>
+          <div class="a-lbl" data-i18n="s5.manager">Manager</div>
         </div>
       </div>
 
       <div class="arch-legend">
-        <div class="al-item"><div class="al-d dk"></div>Check-in · capturar y guardar</div>
-        <div class="al-item"><div class="al-d rd"></div>Consulta · recuperar y responder</div>
+        <div class="al-item"><div class="al-d dk"></div><span data-i18n="s5.leg1">Check-in · capturar y guardar</span></div>
+        <div class="al-item"><div class="al-d rd"></div><span data-i18n="s5.leg2">Consulta · recuperar y responder</span></div>
       </div>
     </div>
   </section>
 
   <!-- ── S6 FASE 1 ── -->
   <section class="slide bg-l" id="s6">
-    <div class="lbl"><span class="d"></span>Fase 1</div>
+    <div class="lbl"><span class="d"></span><span data-i18n="s6.lbl">Fase 1</span></div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div class="s6l" style="padding-top:72px;padding-left:56px;padding-bottom:56px">
-      <div class="d2" style="font-size:clamp(22px,2.8vw,40px);line-height:1.15">Una persona, un agente dedicado.</div>
-      <p class="body" style="margin-top:16px">Cada persona de la organización tiene su propio agente. Cada día mantiene con ella una conversación breve — en su idioma, a su ritmo — y recoge lo que está viviendo en el trabajo.</p>
+      <div class="d2" style="font-size:clamp(22px,2.8vw,40px);line-height:1.15" data-i18n="s6.title">Una persona, un agente dedicado.</div>
+      <p class="body" style="margin-top:16px" data-i18n="s6.body">Cada persona de la organización tiene su propio agente. Cada día mantiene con ella una conversación breve — en su idioma, a su ritmo — y recoge lo que está viviendo en el trabajo.</p>
     </div>
     <div class="s6r" style="padding:80px 56px 56px 16px">
       <div class="q-sup">Transcripción real · Piloto agosto 2026</div>
       <div style="margin-top:12px;display:flex;flex-direction:column;gap:3px">
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Hola, [nombre]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Sí.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">¿Desde dónde trabajaste hoy y en qué horario?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Remoto, de cinco a once y media.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Entendido. ¿En qué estuviste trabajando hoy?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Mañana tenemos un deploy, así que estuve acabando unos tickets de última hora sobre la página de tokens y audiencias.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Claro. ¿Y qué tipo de tickets eran? ¿Alguno que te haya tomado más tiempo?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">La página de tokens y el BSUID; todo funciona correctamente. Solo queda un ticket de audiencias que mañana resolvemos con [un compañero], que hoy no trabaja.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Perfecto. ¿Algo más en lo que hayas estado trabajando hoy?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Sí, terminé la documentación del deploy con el changelog, el resumen de la reunión de Max Prices, actualicé tickets de Jira y me reuní con [tres compañeros]. También hablé con [un compañero] de marketing.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Se nota que estuvo intenso. ¿Algo más que quieras reportar?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">No.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Te cuento las novedades del grupo de ayer: se finaliza el DPA para un cliente dental. Se avanzó en la integración de Google Contact. Se priorizó una oferta de upgrades. El rediseño de Max Price incorpora selección de países. Se iniciará el roadmap la próxima semana.</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Gracias.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Gracias. Que te vaya bien mañana.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t1">Hola, [nombre]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t2">Sí.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t3">¿Desde dónde trabajaste hoy y en qué horario?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t4">Remoto, de cinco a once y media.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t5">Entendido. ¿En qué estuviste trabajando hoy?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t6">Mañana tenemos un deploy, así que estuve acabando unos tickets de última hora sobre la página de tokens y audiencias.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t7">Claro. ¿Y qué tipo de tickets eran? ¿Alguno que te haya tomado más tiempo?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t8">La página de tokens y el BSUID; todo funciona correctamente. Solo queda un ticket de audiencias que mañana resolvemos con [un compañero], que hoy no trabaja.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t9">Perfecto. ¿Algo más en lo que hayas estado trabajando hoy?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t10">Sí, terminé la documentación del deploy con el changelog, el resumen de la reunión de Max Prices, actualicé tickets de Jira y me reuní con [tres compañeros]. También hablé con [un compañero] de marketing.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t11">Se nota que estuvo intenso. ¿Algo más que quieras reportar?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t12">No.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t13">Te cuento las novedades del grupo de ayer: se finaliza el DPA para un cliente dental. Se avanzó en la integración de Google Contact. Se priorizó una oferta de upgrades. El rediseño de Max Price incorpora selección de países. Se iniciará el roadmap la próxima semana.</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t14">Gracias.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t15">Gracias. Que te vaya bien mañana.</span></div>
       </div>
     </div>
   </section>
 
   <!-- ── S7 FASE 2 ── -->
   <section class="slide bg-l" id="s7">
-    <div class="lbl"><span class="d"></span>Fase 2 — Compartir</div>
+    <div class="lbl"><span class="d"></span><span data-i18n="s7.lbl">Fase 2 — Compartir</span></div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div class="s7l" style="padding-top:72px;padding-left:56px;padding-bottom:56px">
-      <div class="d2" style="font-size:clamp(22px,2.8vw,40px);line-height:1.15">El conocimiento se comparte.</div>
-      <p class="body" style="margin-top:16px">Cada manager tiene también su propio agente. Cuando lo necesita, pregunta en voz alta — en su idioma, desde donde esté — y recibe una respuesta breve construida con lo que el equipo contó.</p>
+      <div class="d2" style="font-size:clamp(22px,2.8vw,40px);line-height:1.15" data-i18n="s7.title">El conocimiento se comparte.</div>
+      <p class="body" style="margin-top:16px" data-i18n="s7.body">Cada manager tiene también su propio agente. Cuando lo necesita, pregunta en voz alta — en su idioma, desde donde esté — y recibe una respuesta breve construida con lo que el equipo contó.</p>
     </div>
     <div class="s7r" style="padding:80px 56px 56px 16px">
       <div class="q-sup">Transcripción real · Piloto septiembre 2026</div>
       <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px">
-        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text">Hola, [Manager]. Soy María, tu asistente para consultar a tu equipo. ¿Qué te gustaría saber?</span></div>
-        <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text">¿Qué ha hecho [Empleada A] esta semana?</span></div>
-        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text">Esta semana ha estado bastante activa: trabajó en los catálogos de Meta, gestionó unas facturas y revisó tickets con [una compañera]. Tuvo una reunión sobre el VSDAY y los nuevos precios en Meta. El 31 de agosto estuvo en la oficina de 8:30 a 17:30.</span></div>
-        <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text">¿Hubo algún problema con el proyecto inbox for all?</span></div>
-        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text">Sí, ha habido algunos. El 22 de julio, [Compañera 1] reportó errores al enviar mensajes con el inbox. El 13 de julio, [Empleada A] lo dejó pendiente de una validación. Y el 27 de agosto, [Compañera 2] encontró un error al instalar la nueva versión para un cliente, que se resolvió borrando la caché.</span></div>
-        <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text">No, está bien.</span></div>
-        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text">Perfecto. Si necesitas algo más, aquí ando.</span></div>
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text" data-i18n="s7.t1">Hola, [Manager]. Soy María, tu asistente para consultar a tu equipo. ¿Qué te gustaría saber?</span></div>
+        <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text" data-i18n="s7.t2">¿Qué ha hecho [Empleada A] esta semana?</span></div>
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text" data-i18n="s7.t3">Esta semana ha estado bastante activa: trabajó en los catálogos de Meta, gestionó unas facturas y revisó tickets con [una compañera]. Tuvo una reunión sobre el VSDAY y los nuevos precios en Meta. El 31 de agosto estuvo en la oficina de 8:30 a 17:30.</span></div>
+        <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text" data-i18n="s7.t4">¿Hubo algún problema con el proyecto inbox for all?</span></div>
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text" data-i18n="s7.t5">Sí, ha habido algunos. El 22 de julio, [Compañera 1] reportó errores al enviar mensajes con el inbox. El 13 de julio, [Empleada A] lo dejó pendiente de una validación. Y el 27 de agosto, [Compañera 2] encontró un error al instalar la nueva versión para un cliente, que se resolvió borrando la caché.</span></div>
+        <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text" data-i18n="s7.t6">No, está bien.</span></div>
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text" data-i18n="s7.t7">Perfecto. Si necesitas algo más, aquí ando.</span></div>
       </div>
     </div>
   </section>
 
   <!-- ── S8 EXPERIMENTO JUNIO ── -->
   <section class="slide bg-l" id="s8">
-    <div class="lbl plain" style="top:28px;left:44px;letter-spacing:.2em;gap:6px">Experimento &nbsp;·&nbsp; Junio 2026</div>
+    <div class="lbl plain" style="top:28px;left:44px;letter-spacing:.2em;gap:6px" data-i18n="s8.lbl">Experimento &nbsp;·&nbsp; Junio 2026</div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="width:100%;padding-top:24px">
-      <div class="exp-h" style="margin-top:28px">De dónde partimos — experimento de junio.</div>
+      <div class="exp-h" style="margin-top:28px" data-i18n="s8.title">De dónde partimos — experimento de junio.</div>
       <div class="stat-banner">
-        <div class="sb-item"><div class="stat-n">100%</div><div class="sb-sub"><strong>trampas rechazadas</strong> — siempre cita la fuente</div></div>
-        <div class="sb-item"><div class="stat-n">95%</div><div class="sb-sub"><strong>consultas correctas</strong> — en lenguaje natural</div></div>
-        <div class="sb-item"><div class="stat-n mono">3,1 min</div><div class="sb-sub"><strong>de media por check-in</strong> — 131 en junio</div></div>
+        <div class="sb-item"><div class="stat-n">100%</div><div class="sb-sub" data-i18n-html="s8.stat1sub"><strong>trampas rechazadas</strong> — siempre cita la fuente</div></div>
+        <div class="sb-item"><div class="stat-n">95%</div><div class="sb-sub" data-i18n-html="s8.stat2sub"><strong>consultas correctas</strong> — en lenguaje natural</div></div>
+        <div class="sb-item"><div class="stat-n mono">3,1 min</div><div class="sb-sub" data-i18n-html="s8.stat3sub"><strong>de media por check-in</strong> — 131 en junio</div></div>
       </div>
       <div class="rg">
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Relatividad <span class="arr">→</span> Priorización</div></div>
-          <div class="rc-b">Recupera solo lo relevante y lo sintetiza — <strong>reconstruyó una decisión repartida en 3 fechas</strong>.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c1t">Relatividad <span class="arr">→</span> Priorización</div></div>
+          <div class="rc-b" data-i18n-html="s8.c1d">Recupera solo lo relevante y lo sintetiza — <strong>reconstruyó una decisión repartida en 3 fechas</strong>.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Intermitente <span class="arr">→</span> Determinismo</div></div>
-          <div class="rc-b">Respuestas consistentes y trazables — <strong>5 de 5 intentos de invención rechazados</strong>.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c2t">Intermitente <span class="arr">→</span> Determinismo</div></div>
+          <div class="rc-b" data-i18n-html="s8.c2d">Respuestas consistentes y trazables — <strong>5 de 5 intentos de invención rechazados</strong>.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Idiomas <span class="arr">→</span> Multiidioma nativo</div></div>
-          <div class="rc-b">Check-ins en español e inglés — <strong>voces nativas, no traducción</strong>.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c3t">Idiomas <span class="arr">→</span> Multiidioma nativo</div></div>
+          <div class="rc-b" data-i18n-html="s8.c3d">Check-ins en español e inglés — <strong>voces nativas, no traducción</strong>.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Agendas <span class="arr">→</span> Asincronía</div></div>
-          <div class="rc-b"><strong>131 check-ins asíncronos</strong> sin gastar tiempo en reuniones.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c4t">Agendas <span class="arr">→</span> Asincronía</div></div>
+          <div class="rc-b" data-i18n-html="s8.c4d"><strong>131 check-ins asíncronos</strong> sin gastar tiempo en reuniones.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Cultura <span class="arr">→</span> Tropicalización</div></div>
-          <div class="rc-b">Voz y modismos nativos por región — <strong>argentino, español y más variedades del español</strong>, adaptado a su contexto cultural.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c5t">Cultura <span class="arr">→</span> Tropicalización</div></div>
+          <div class="rc-b" data-i18n-html="s8.c5d">Voz y modismos nativos por región — <strong>argentino, español y más variedades del español</strong>, adaptado a su contexto cultural.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Pérdida <span class="arr">→</span> Transferencia estructurada</div></div>
-          <div class="rc-b">Convierte en <strong>registros estructurados y trazables</strong> el conocimiento que se perdería, atribuido por persona, empresa y fecha.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c6t">Pérdida <span class="arr">→</span> Transferencia estructurada</div></div>
+          <div class="rc-b" data-i18n-html="s8.c6d">Convierte en <strong>registros estructurados y trazables</strong> el conocimiento que se perdería, atribuido por persona, empresa y fecha.</div>
         </div>
       </div>
     </div>
@@ -553,41 +557,41 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 
   <!-- ── S9 PILOTO AGOSTO ── -->
   <section class="slide bg-l" id="s9">
-    <div class="lbl plain" style="top:28px;left:44px;letter-spacing:.2em;gap:6px">Piloto &nbsp;·&nbsp; Agosto 2026</div>
+    <div class="lbl plain" style="top:28px;left:44px;letter-spacing:.2em;gap:6px" data-i18n="s9.lbl">Piloto &nbsp;·&nbsp; Agosto 2026</div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="width:100%;padding-top:24px">
-      <div class="exp-h" style="margin-top:28px">Nueve personas, un mes de check-ins.</div>
+      <div class="exp-h" style="margin-top:28px" data-i18n="s9.title">Nueve personas, un mes de check-ins.</div>
       <div class="stat-banner">
-        <div class="sb-item"><div class="stat-n">96%</div><div class="sb-sub"><strong>de cumplimiento</strong> — en las nueve personas</div></div>
-        <div class="sb-item"><div class="stat-n">82%</div><div class="sb-sub"><strong>respuestas correctas</strong> — sobre 92 preguntas</div></div>
-        <div class="sb-item"><div class="stat-n mono">169</div><div class="sb-sub"><strong>llamadas en agosto</strong> — siete de nueve, cada día</div></div>
+        <div class="sb-item"><div class="stat-n">96%</div><div class="sb-sub" data-i18n-html="s9.stat1sub"><strong>de cumplimiento</strong> — en las nueve personas</div></div>
+        <div class="sb-item"><div class="stat-n">82%</div><div class="sb-sub" data-i18n-html="s9.stat2sub"><strong>respuestas correctas</strong> — sobre 92 preguntas</div></div>
+        <div class="sb-item"><div class="stat-n mono">169</div><div class="sb-sub" data-i18n-html="s9.stat3sub"><strong>llamadas en agosto</strong> — siete de nueve, cada día</div></div>
       </div>
       <div class="rg">
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Adopción <span class="arr">→</span> Un hábito diario</div></div>
-          <div class="rc-b">Siete de las nueve reportan todos los días — <strong>la racha más larga es de 19 días seguidos</strong>.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c1t">Adopción <span class="arr">→</span> Un hábito diario</div></div>
+          <div class="rc-b" data-i18n-html="s9.c1d">Siete de las nueve reportan todos los días — <strong>la racha más larga es de 19 días seguidos</strong>.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Constancia <span class="arr">→</span> Semana a semana</div></div>
-          <div class="rc-b">El hábito se afianzó durante el mes — <strong>del 97% al 100% en cuatro semanas</strong>.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c2t">Constancia <span class="arr">→</span> Semana a semana</div></div>
+          <div class="rc-b" data-i18n-html="s9.c2d">El hábito se afianzó durante el mes — <strong>del 97% al 100% en cuatro semanas</strong>.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Fiabilidad <span class="arr">→</span> Un servicio que aguanta</div></div>
-          <div class="rc-b">De las 169 llamadas de agosto, el <strong>90% funcionó sin ningún fallo</strong> — y ninguna se cortó.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c3t">Fiabilidad <span class="arr">→</span> Un servicio que aguanta</div></div>
+          <div class="rc-b" data-i18n-html="s9.c3d">De las 169 llamadas de agosto, el <strong>90% funcionó sin ningún fallo</strong> — y ninguna se cortó.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Resumen <span class="arr">→</span> Se escucha entero</div></div>
-          <div class="rc-b">El <strong>85% escucha el resumen completo</strong> — las novedades les llegan cada mañana.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c4t">Resumen <span class="arr">→</span> Se escucha entero</div></div>
+          <div class="rc-b" data-i18n-html="s9.c4d">El <strong>85% escucha el resumen completo</strong> — las novedades les llegan cada mañana.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Precisión <span class="arr">→</span> Respuestas sólidas</div></div>
-          <div class="rc-b">Probado con 92 preguntas reales — el <strong>82% respondidas correctamente</strong>, y avisa cuando no tiene datos.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c5t">Precisión <span class="arr">→</span> Respuestas sólidas</div></div>
+          <div class="rc-b" data-i18n-html="s9.c5d">Probado con 92 preguntas reales — el <strong>82% respondidas correctamente</strong>, y avisa cuando no tiene datos.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t">Siempre responde <span class="arr">→</span> No rellena los huecos</div></div>
-          <div class="rc-b">Toda pregunta recibe respuesta, aunque sea <strong>«no tengo ese dato»</strong>.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c6t">Siempre responde <span class="arr">→</span> No rellena los huecos</div></div>
+          <div class="rc-b" data-i18n-html="s9.c6d">Toda pregunta recibe respuesta, aunque sea <strong>«no tengo ese dato»</strong>.</div>
         </div>
       </div>
     </div>
@@ -595,32 +599,32 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 
   <!-- ── S10 LO QUE HEMOS CORREGIDO ── -->
   <section class="slide bg-l" id="s10">
-    <div class="lbl"><span class="d"></span>Lo que hemos corregido</div>
+    <div class="lbl"><span class="d"></span><span data-i18n="s10.lbl">Lo que hemos corregido</span></div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="width:100%;padding:64px 60px 44px;display:flex;flex-direction:column">
-      <div class="d2" style="margin-top:20px;font-size:clamp(22px,2.8vw,38px)">Del experimento al piloto: cinco cosas corregidas.</div>
+      <div class="d2" style="margin-top:20px;font-size:clamp(22px,2.8vw,38px)" data-i18n="s10.title">Del experimento al piloto: cinco cosas corregidas.</div>
       <div class="cg">
         <div class="cpair">
-          <div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Turnos de palabra</strong> · el agente interrumpía y repetía preguntas</div></div>
-          <div class="ca"><div class="clbl a">Después</div><div class="ctxt">Espera y deja terminar a cada persona.</div></div>
+          <div class="cb"><div class="clbl" data-i18n="shared.before">Antes</div><div class="ctxt" data-i18n-html="s10.b1b"><strong>Turnos de palabra</strong> · el agente interrumpía y repetía preguntas</div></div>
+          <div class="ca"><div class="clbl a" data-i18n="shared.after">Después</div><div class="ctxt" data-i18n="s10.b1a">Espera y deja terminar a cada persona.</div></div>
         </div>
         <div class="cpair">
-          <div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Extracción de datos</strong> · el modo de razonamiento triplicaba la espera y perdía datos</div></div>
-          <div class="ca"><div class="clbl a">Después</div><div class="ctxt">Sin ese modo: tres veces más rápido y sin pérdidas.</div></div>
+          <div class="cb"><div class="clbl" data-i18n="shared.before">Antes</div><div class="ctxt" data-i18n-html="s10.b2b"><strong>Extracción de datos</strong> · el modo de razonamiento triplicaba la espera y perdía datos</div></div>
+          <div class="ca"><div class="clbl a" data-i18n="shared.after">Después</div><div class="ctxt" data-i18n="s10.b2a">Sin ese modo: tres veces más rápido y sin pérdidas.</div></div>
         </div>
         <div class="cpair">
-          <div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Huso horario</strong> · «ayer» fallaba hasta 16 h para managers fuera de Madrid</div></div>
-          <div class="ca"><div class="clbl a">Después</div><div class="ctxt">Se usa el huso de cada manager.</div></div>
+          <div class="cb"><div class="clbl" data-i18n="shared.before">Antes</div><div class="ctxt" data-i18n-html="s10.b3b"><strong>Huso horario</strong> · «ayer» fallaba hasta 16 h para managers fuera de Madrid</div></div>
+          <div class="ca"><div class="clbl a" data-i18n="shared.after">Después</div><div class="ctxt" data-i18n="s10.b3a">Se usa el huso de cada manager.</div></div>
         </div>
         <div class="cpair">
-          <div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Silencios</strong> · la llamada se cortaba mientras la persona pensaba</div></div>
-          <div class="ca"><div class="clbl a">Después</div><div class="ctxt">Espera mientras piensas.</div></div>
+          <div class="cb"><div class="clbl" data-i18n="shared.before">Antes</div><div class="ctxt" data-i18n-html="s10.b4b"><strong>Silencios</strong> · la llamada se cortaba mientras la persona pensaba</div></div>
+          <div class="ca"><div class="clbl a" data-i18n="shared.after">Después</div><div class="ctxt" data-i18n="s10.b4a">Espera mientras piensas.</div></div>
         </div>
         <div class="cpair solo">
-          <div class="cb"><div class="clbl">Antes</div><div class="ctxt"><strong>Respuestas cortadas</strong> · el agente truncaba las respuestas a medias</div></div>
-          <div class="ca"><div class="clbl a">Después</div><div class="ctxt">Ahora llegan a su final natural.</div></div>
+          <div class="cb"><div class="clbl" data-i18n="shared.before">Antes</div><div class="ctxt" data-i18n-html="s10.b5b"><strong>Respuestas cortadas</strong> · el agente truncaba las respuestas a medias</div></div>
+          <div class="ca"><div class="clbl a" data-i18n="shared.after">Después</div><div class="ctxt" data-i18n="s10.b5a">Ahora llegan a su final natural.</div></div>
         </div>
       </div>
     </div>
@@ -628,32 +632,32 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 
   <!-- ── S11 RIESGOS ── -->
   <section class="slide bg-l" id="s11">
-    <div class="lbl"><span class="d"></span>Riesgos y mitigaciones</div>
+    <div class="lbl"><span class="d"></span><span data-i18n="s11.lbl">Riesgos y mitigaciones</span></div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="width:100%;display:flex;flex-direction:column;padding:64px 60px 44px">
-      <div class="rh">Cada riesgo tiene su mitigación por diseño.</div>
+      <div class="rh" data-i18n="s11.title">Cada riesgo tiene su mitigación por diseño.</div>
       <div class="risg">
         <div class="rpair">
-          <div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Fatiga de check-in</div></div>
-          <div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Breve, asíncrona y en su idioma.</div></div>
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r1">Fatiga de check-in</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m1">Breve, asíncrona y en su idioma.</div></div>
         </div>
         <div class="rpair">
-          <div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Privacidad y datos</div></div>
-          <div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Datos en la UE y consentimiento.</div></div>
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r2">Privacidad y datos</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m2">Datos en la UE y consentimiento.</div></div>
         </div>
         <div class="rpair">
-          <div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Respuestas incorrectas</div></div>
-          <div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Respuestas siempre trazables.</div></div>
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r3">Respuestas incorrectas</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m3">Respuestas siempre trazables.</div></div>
         </div>
         <div class="rpair">
-          <div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Parecer un formulario</div></div>
-          <div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Una conversación real, no un cuestionario leído en voz alta.</div></div>
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r4">Parecer un formulario</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m4">Una conversación real, no un cuestionario leído en voz alta.</div></div>
         </div>
         <div class="rpair" style="grid-column:1/-1;width:50%">
-          <div class="rc2"><div class="rlbl">Riesgo</div><div class="rtxt">Atados a un proveedor</div></div>
-          <div class="rm"><div class="rlbl m">Mitigación</div><div class="rtxt">Ningún proveedor es imprescindible: todos se pueden sustituir.</div></div>
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r5">Atados a un proveedor</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m5">Ningún proveedor es imprescindible: todos se pueden sustituir.</div></div>
         </div>
       </div>
     </div>
@@ -661,48 +665,48 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 
   <!-- ── S APRENDIZAJES ── -->
   <section class="slide bg-l" id="s-aprendizajes">
-    <div class="lbl"><span class="d"></span>Aprendizajes</div>
+    <div class="lbl"><span class="d"></span><span data-i18n="sa.lbl">Aprendizajes</span></div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="padding:80px;display:flex;flex-direction:column;justify-content:center;width:100%">
       <div class="q-sup" style="margin-bottom:20px">Pendiente · AW-153</div>
-      <div class="d2" style="margin-bottom:24px">Lo que sí o sí hay que hacer.</div>
-      <p class="body" style="max-width:560px">Responde la pregunta de JP: ¿qué hemos aprendido con el piloto y qué conclusiones son innegociables para la siguiente fase?</p>
+      <div class="d2" style="margin-bottom:24px" data-i18n="sa.title">Lo que sí o sí hay que hacer.</div>
+      <p class="body" style="max-width:560px" data-i18n="sa.body">Responde la pregunta de JP: ¿qué hemos aprendido con el piloto y qué conclusiones son innegociables para la siguiente fase?</p>
       <ul class="dl" style="margin-top:28px;max-width:500px">
-        <li>¿Qué ha funcionado mejor de lo esperado?</li>
-        <li>¿Qué hay que cambiar antes de escalar?</li>
-        <li>¿Qué descartamos definitivamente?</li>
+        <li data-i18n="sa.li1">¿Qué ha funcionado mejor de lo esperado?</li>
+        <li data-i18n="sa.li2">¿Qué hay que cambiar antes de escalar?</li>
+        <li data-i18n="sa.li3">¿Qué descartamos definitivamente?</li>
       </ul>
     </div>
   </section>
 
   <!-- ── S12 SIGUIENTES FASES ── -->
   <section class="slide bg-l" id="s12">
-    <div class="lbl"><span class="d"></span>Lo que viene</div>
+    <div class="lbl"><span class="d"></span><span data-i18n="s12.lbl">Lo que viene</span></div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="width:100%;display:flex;flex-direction:column;padding:64px 60px 44px">
-      <div class="d2" style="margin-top:20px">Tres frentes a la vez.</div>
+      <div class="d2" style="margin-top:20px" data-i18n="s12.title">Tres frentes a la vez.</div>
       <div class="ng">
         <div class="nc">
           <div class="nc-d"></div>
-          <div class="nc-n">01 · Idiomas</div>
-          <div class="nc-t">Más idiomas</div>
-          <div class="nc-desc">Más idiomas, más variantes culturales y un agente para cada una.</div>
+          <div class="nc-n" data-i18n="s12.n1">01 · Idiomas</div>
+          <div class="nc-t" data-i18n="s12.t1">Más idiomas</div>
+          <div class="nc-desc" data-i18n="s12.d1">Más idiomas, más variantes culturales y un agente para cada una.</div>
         </div>
         <div class="nc">
           <div class="nc-d"></div>
-          <div class="nc-n">02 · Integraciones</div>
-          <div class="nc-t">Más fuentes</div>
-          <div class="nc-desc">CRM, calendarios y WhatsApp, para que el agente de consulta también los use.</div>
+          <div class="nc-n" data-i18n="s12.n2">02 · Integraciones</div>
+          <div class="nc-t" data-i18n="s12.t2">Más fuentes</div>
+          <div class="nc-desc" data-i18n="s12.d2">CRM, calendarios y WhatsApp, para que el agente de consulta también los use.</div>
         </div>
         <div class="nc">
           <div class="nc-d"></div>
-          <div class="nc-n">03 · Acceso</div>
-          <div class="nc-t">Permisos</div>
-          <div class="nc-desc">El acceso sigue el organigrama: un manager ve su equipo, un director su área.</div>
+          <div class="nc-n" data-i18n="s12.n3">03 · Acceso</div>
+          <div class="nc-t" data-i18n="s12.t3">Permisos</div>
+          <div class="nc-desc" data-i18n="s12.d3">El acceso sigue el organigrama: un manager ve su equipo, un director su área.</div>
         </div>
       </div>
     </div>
@@ -710,17 +714,17 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 
   <!-- ── S EQUIPO ── -->
   <section class="slide bg-l" id="s-equipo">
-    <div class="lbl"><span class="d"></span>Equipo</div>
+    <div class="lbl"><span class="d"></span><span data-i18n="se.lbl">Equipo</span></div>
     <div class="aw">
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="padding:80px;display:flex;flex-direction:column;justify-content:center;width:100%">
-      <div class="d2" style="margin-bottom:32px">Quién hay detrás.</div>
+      <div class="d2" style="margin-bottom:32px" data-i18n="se.title">Quién hay detrás.</div>
       <div style="display:flex;gap:24px;align-items:flex-start">
         <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 20px;width:188px;text-align:center">
           <img src="gabriel.jpg" style="width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin:0 auto 14px">
           <div style="font-size:14px;font-weight:600;color:var(--navy)">Gabriel Hernán Noguera</div>
-          <div style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);font-weight:700;margin-top:5px">Responsable</div>
+          <div style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);font-weight:700;margin-top:5px" data-i18n="se.role1">Responsable</div>
         </div>
         <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 20px;width:188px;text-align:center;opacity:.45">
           <div style="width:96px;height:96px;border-radius:50%;background:var(--border);display:block;margin:0 auto 14px"></div>
@@ -746,7 +750,7 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
       </svg>
     </div>
     <div style="position:absolute;top:24px;left:44px">
-      <div style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);font-family:var(--f)">Pruébalo</div>
+      <div style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);font-family:var(--f)" data-i18n="s13.cta">Pruébalo</div>
       <div class="wave" style="height:28px;margin-top:6px;margin-bottom:0">
         <span style="height:8px"></span><span style="height:14px"></span><span style="height:20px"></span>
         <span style="height:12px"></span><span style="height:24px"></span><span style="height:16px"></span>
@@ -757,18 +761,18 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
       <svg width="140" height="22" viewBox="0 0 140 22" fill="none"><polygon points="0,11 8,0 16,11 8,22" fill="#C13B2F" opacity=".9"/><polygon points="8,5 14,11 8,17" fill="#7a1f16"/><text x="22" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="400" fill="#1C1C2E" letter-spacing="0.5">AlmaWolf</text><text x="85" y="15.5" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#C13B2F" letter-spacing="0.5">LAB</text></svg>
     </div>
     <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%">
-      <div class="qr-h">Prueba los agentes tú mismo.</div>
-      <div class="qr-sub">Habla con <span>Her</span> — apunta con la cámara y empieza.</div>
+      <div class="qr-h" data-i18n="s13.h">Prueba los agentes tú mismo.</div>
+      <div class="qr-sub" data-i18n-html="s13.sub">Habla con <span>Her</span> — apunta con la cámara y empieza.</div>
       <div class="qr-cards">
         <div class="qr-card">
           <div class="qr-img"><!-- QR Burton --><span>QR pendiente</span></div>
           <div class="qr-name">Burton</div>
-          <div class="qr-role">Escanea y habla con el agente</div>
+          <div class="qr-role" data-i18n="s13.role">Escanea y habla con el agente</div>
         </div>
         <div class="qr-card">
           <div class="qr-img"><!-- QR Pedro --><span>QR pendiente</span></div>
           <div class="qr-name">Pedro</div>
-          <div class="qr-role">Escanea y habla con el agente</div>
+          <div class="qr-role" data-i18n="s13.role">Escanea y habla con el agente</div>
         </div>
       </div>
     </div>
@@ -804,6 +808,8 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
   <span class="cnt" id="cnt">1 / 16</span>
   <button id="next" title="Siguiente">›</button>
   <span class="kh">← →</span>
+  <span class="lang-sep"></span>
+  <button id="lang-toggle">ES</button>
 </nav>
 
 <script>
@@ -826,6 +832,299 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
     if(e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') go(cur+1);
     if(e.key === 'ArrowLeft'  || e.key === 'ArrowUp') go(cur-1);
   });
+})();
+</script>
+
+<!-- i18n ES/EN -->
+<script>
+const i18n = {
+  es: {
+    'port.title':'Proyecto Her','port.sub':'Realidad percibida accionable',
+    'idx.lbl':'Índice','idx.intro':'Lo que vamos a ver.',
+    'idx.01':'El objetivo','idx.02':'Problemas y soluciones','idx.03':'Arquitectura',
+    'idx.04':'Agente de check-in','idx.05':'Agente de consulta',
+    'idx.06':'Resultados del experimento','idx.07':'Resultados del piloto',
+    'idx.08':'Lo que hemos corregido','idx.09':'Riesgos y mitigaciones',
+    'idx.10':'Aprendizajes','idx.11':'Siguientes fases','idx.12':'Equipo','idx.13':'QR',
+    's3.lbl':'El objetivo',
+    's3.big':'<span class="accent" style="color:var(--red)">Visibilizar y compartir</span><br>el conocimiento de negocio<br>de cada individuo<br>de la organización.',
+    's3.body':'Un experimento para convertir ese conocimiento en inteligencia colectiva — de modo replicable y bajo cumplimiento normativo.',
+    's4.lbl':'El problema','s4.title':'El conocimiento se evapora cada día.',
+    's4.sub':'Muere en reuniones, llamadas y correos…',
+    's4.li1':'El manager no ve qué hizo su equipo sin preguntar.',
+    's4.li2':'El CEO no tiene visión de grupo sin una reunión.',
+    's4.li3':'Hay experiencias que no tienen dónde registrarse y no dejan rastro.',
+    's4.p1':'Relatividad','s4.p1desc':'Cada persona asigna una importancia a cada tema de modo subjetivo',
+    's4.p2':'Intermitente','s4.p3':'Idiomas','s4.p4':'Husos horarios','s4.p5':'Cultura',
+    's4.p6':'Pérdida de conocimiento',
+    's4.s1':'Priorización','s4.s2':'Determinismo','s4.s3':'Multiidioma nativo',
+    's4.s4':'Asincronía','s4.s5':'Tropicalización','s4.s6':'Transferencia estructurada',
+    's5.lbl':'Arquitectura',
+    's5.title':'Dos tipos de agentes, una misma base de conocimiento.',
+    's5.sub':'Los agentes de check-in capturan lo que el equipo sabe; los de consulta responden a partir de ahí, sobre esa misma base compartida.',
+    's5.user':'User','s5.reports':'Reports','s5.checkin':'Check-in<br>Agent',
+    's5.summary':'Summary','s5.writes':'Writes','s5.kb':'Knowledge base',
+    's5.reads':'Reads','s5.query':'Query<br>Agent','s5.answer':'Answer','s5.asks':'Asks',
+    's5.manager':'Manager',
+    's5.leg1':'Check-in · capturar y guardar','s5.leg2':'Consulta · recuperar y responder',
+    's6.lbl':'Fase 1','s6.title':'Una persona, un agente dedicado.',
+    's6.body':'Cada persona de la organización tiene su propio agente. Cada día mantiene con ella una conversación breve — en su idioma, a su ritmo — y recoge lo que está viviendo en el trabajo.',
+    's6.t1':'Hola, [nombre]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?',
+    's6.t2':'Sí.',
+    's6.t3':'¿Desde dónde trabajaste hoy y en qué horario?',
+    's6.t4':'Remoto, de cinco a once y media.',
+    's6.t5':'Entendido. ¿En qué estuviste trabajando hoy?',
+    's6.t6':'Mañana tenemos un deploy, así que estuve acabando unos tickets de última hora sobre la página de tokens y audiencias.',
+    's6.t7':'Claro. ¿Y qué tipo de tickets eran? ¿Alguno que te haya tomado más tiempo?',
+    's6.t8':'La página de tokens y el BSUID; todo funciona correctamente. Solo queda un ticket de audiencias que mañana resolvemos con [un compañero], que hoy no trabaja.',
+    's6.t9':'Perfecto. ¿Algo más en lo que hayas estado trabajando hoy?',
+    's6.t10':'Sí, terminé la documentación del deploy con el changelog, el resumen de la reunión de Max Prices, actualicé tickets de Jira y me reuní con [tres compañeros]. También hablé con [un compañero] de marketing.',
+    's6.t11':'Se nota que estuvo intenso. ¿Algo más que quieras reportar?',
+    's6.t12':'No.',
+    's6.t13':'Te cuento las novedades del grupo de ayer: se finaliza el DPA para un cliente dental. Se avanzó en la integración de Google Contact. Se priorizó una oferta de upgrades. El rediseño de Max Price incorpora selección de países. Se iniciará el roadmap la próxima semana.',
+    's6.t14':'Gracias.',
+    's6.t15':'Gracias. Que te vaya bien mañana.',
+    's7.lbl':'Fase 2 — Compartir','s7.title':'El conocimiento se comparte.',
+    's7.body':'Cada manager tiene también su propio agente. Cuando lo necesita, pregunta en voz alta — en su idioma, desde donde esté — y recibe una respuesta breve construida con lo que el equipo contó.',
+    's7.t1':'Hola, [Manager]. Soy María, tu asistente para consultar a tu equipo. ¿Qué te gustaría saber?',
+    's7.t2':'¿Qué ha hecho [Empleada A] esta semana?',
+    's7.t3':'Esta semana ha estado bastante activa: trabajó en los catálogos de Meta, gestionó unas facturas y revisó tickets con [una compañera]. Tuvo una reunión sobre el VSDAY y los nuevos precios en Meta. El 31 de agosto estuvo en la oficina de 8:30 a 17:30.',
+    's7.t4':'¿Hubo algún problema con el proyecto inbox for all?',
+    's7.t5':'Sí, ha habido algunos. El 22 de julio, [Compañera 1] reportó errores al enviar mensajes con el inbox. El 13 de julio, [Empleada A] lo dejó pendiente de una validación. Y el 27 de agosto, [Compañera 2] encontró un error al instalar la nueva versión para un cliente, que se resolvió borrando la caché.',
+    's7.t6':'No, está bien.',
+    's7.t7':'Perfecto. Si necesitas algo más, aquí ando.',
+    's8.lbl':'Experimento · Junio 2026',
+    's8.title':'De dónde partimos — experimento de junio.',
+    's8.stat1sub':'<strong>trampas rechazadas</strong> — siempre cita la fuente',
+    's8.stat2sub':'<strong>consultas correctas</strong> — en lenguaje natural',
+    's8.stat3sub':'<strong>de media por check-in</strong> — 131 en junio',
+    's8.c1t':'Relatividad <span class="arr">→</span> Priorización',
+    's8.c1d':'Recupera solo lo relevante y lo sintetiza — <strong>reconstruyó una decisión repartida en 3 fechas</strong>.',
+    's8.c2t':'Intermitente <span class="arr">→</span> Determinismo',
+    's8.c2d':'Respuestas consistentes y trazables — <strong>5 de 5 intentos de invención rechazados</strong>.',
+    's8.c3t':'Idiomas <span class="arr">→</span> Multiidioma nativo',
+    's8.c3d':'Check-ins en español e inglés — <strong>voces nativas, no traducción</strong>.',
+    's8.c4t':'Agendas <span class="arr">→</span> Asincronía',
+    's8.c4d':'<strong>131 check-ins asíncronos</strong> sin gastar tiempo en reuniones.',
+    's8.c5t':'Cultura <span class="arr">→</span> Tropicalización',
+    's8.c5d':'Voz y modismos nativos por región — <strong>argentino, español y más variedades del español</strong>, adaptado a su contexto cultural.',
+    's8.c6t':'Pérdida <span class="arr">→</span> Transferencia estructurada',
+    's8.c6d':'Convierte en <strong>registros estructurados y trazables</strong> el conocimiento que se perdería, atribuido por persona, empresa y fecha.',
+    's9.lbl':'Piloto · Agosto 2026',
+    's9.title':'Nueve personas, un mes de check-ins.',
+    's9.stat1sub':'<strong>de cumplimiento</strong> — en las nueve personas',
+    's9.stat2sub':'<strong>respuestas correctas</strong> — sobre 92 preguntas',
+    's9.stat3sub':'<strong>llamadas en agosto</strong> — siete de nueve, cada día',
+    's9.c1t':'Adopción <span class="arr">→</span> Un hábito diario',
+    's9.c1d':'Siete de las nueve reportan todos los días — <strong>la racha más larga es de 19 días seguidos</strong>.',
+    's9.c2t':'Constancia <span class="arr">→</span> Semana a semana',
+    's9.c2d':'El hábito se afianzó durante el mes — <strong>del 97% al 100% en cuatro semanas</strong>.',
+    's9.c3t':'Fiabilidad <span class="arr">→</span> Un servicio que aguanta',
+    's9.c3d':'De las 169 llamadas de agosto, el <strong>90% funcionó sin ningún fallo</strong> — y ninguna se cortó.',
+    's9.c4t':'Resumen <span class="arr">→</span> Se escucha entero',
+    's9.c4d':'El <strong>85% escucha el resumen completo</strong> — las novedades les llegan cada mañana.',
+    's9.c5t':'Precisión <span class="arr">→</span> Respuestas sólidas',
+    's9.c5d':'Probado con 92 preguntas reales — el <strong>82% respondidas correctamente</strong>, y avisa cuando no tiene datos.',
+    's9.c6t':'Siempre responde <span class="arr">→</span> No rellena los huecos',
+    's9.c6d':'Toda pregunta recibe respuesta, aunque sea <strong>«no tengo ese dato»</strong>.',
+    's10.lbl':'Lo que hemos corregido',
+    's10.title':'Del experimento al piloto: cinco cosas corregidas.',
+    's10.b1b':'<strong>Turnos de palabra</strong> · el agente interrumpía y repetía preguntas',
+    's10.b1a':'Espera y deja terminar a cada persona.',
+    's10.b2b':'<strong>Extracción de datos</strong> · el modo de razonamiento triplicaba la espera y perdía datos',
+    's10.b2a':'Sin ese modo: tres veces más rápido y sin pérdidas.',
+    's10.b3b':'<strong>Huso horario</strong> · «ayer» fallaba hasta 16 h para managers fuera de Madrid',
+    's10.b3a':'Se usa el huso de cada manager.',
+    's10.b4b':'<strong>Silencios</strong> · la llamada se cortaba mientras la persona pensaba',
+    's10.b4a':'Espera mientras piensas.',
+    's10.b5b':'<strong>Respuestas cortadas</strong> · el agente truncaba las respuestas a medias',
+    's10.b5a':'Ahora llegan a su final natural.',
+    's11.lbl':'Riesgos y mitigaciones',
+    's11.title':'Cada riesgo tiene su mitigación por diseño.',
+    's11.r1':'Fatiga de check-in','s11.m1':'Breve, asíncrona y en su idioma.',
+    's11.r2':'Privacidad y datos','s11.m2':'Datos en la UE y consentimiento.',
+    's11.r3':'Respuestas incorrectas','s11.m3':'Respuestas siempre trazables.',
+    's11.r4':'Parecer un formulario','s11.m4':'Una conversación real, no un cuestionario leído en voz alta.',
+    's11.r5':'Atados a un proveedor','s11.m5':'Ningún proveedor es imprescindible: todos se pueden sustituir.',
+    'sa.lbl':'Aprendizajes','sa.title':'Lo que sí o sí hay que hacer.',
+    'sa.body':'Responde la pregunta de JP: ¿qué hemos aprendido con el piloto y qué conclusiones son innegociables para la siguiente fase?',
+    'sa.li1':'¿Qué ha funcionado mejor de lo esperado?',
+    'sa.li2':'¿Qué hay que cambiar antes de escalar?',
+    'sa.li3':'¿Qué descartamos definitivamente?',
+    's12.lbl':'Lo que viene','s12.title':'Tres frentes a la vez.',
+    's12.n1':'01 · Idiomas','s12.t1':'Más idiomas',
+    's12.d1':'Más idiomas, más variantes culturales y un agente para cada una.',
+    's12.n2':'02 · Integraciones','s12.t2':'Más fuentes',
+    's12.d2':'CRM, calendarios y WhatsApp, para que el agente de consulta también los use.',
+    's12.n3':'03 · Acceso','s12.t3':'Permisos',
+    's12.d3':'El acceso sigue el organigrama: un manager ve su equipo, un director su área.',
+    'se.lbl':'Equipo','se.title':'Quién hay detrás.','se.role1':'Responsable',
+    's13.cta':'Pruébalo','s13.h':'Prueba los agentes tú mismo.',
+    's13.sub':'Habla con <span>Her</span> — apunta con la cámara y empieza.',
+    's13.role':'Escanea y habla con el agente',
+    'shared.solution':'Solución','shared.before':'Antes','shared.after':'Después',
+    'shared.risk':'Riesgo','shared.mitigation':'Mitigación'
+  },
+  en: {
+    'port.title':'Project Her','port.sub':'Actionable perceived reality',
+    'idx.lbl':'Index','idx.intro':"What we're covering.",
+    'idx.01':'The objective','idx.02':'Problems and solutions','idx.03':'Architecture',
+    'idx.04':'Check-in agent','idx.05':'Query agent',
+    'idx.06':'Experiment results','idx.07':'Pilot results',
+    'idx.08':'What we fixed','idx.09':'Risks and mitigations',
+    'idx.10':'Learnings','idx.11':'Next phases','idx.12':'Team','idx.13':'QR',
+    's3.lbl':'The objective',
+    's3.big':'<span class="accent" style="color:var(--red)">Surface and share</span><br>the business knowledge<br>of each individual<br>in the organisation.',
+    's3.body':'An experiment to turn that knowledge into collective intelligence — in a replicable, compliant way.',
+    's4.lbl':'The problem','s4.title':'Knowledge evaporates every day.',
+    's4.sub':'Lost in meetings, calls and emails…',
+    's4.li1':"Managers can't see what their team did without asking.",
+    's4.li2':'CEOs have no group-wide view without a meeting.',
+    's4.li3':'Experiences with nowhere to be recorded leave no trace.',
+    's4.p1':'Subjectivity','s4.p1desc':'Each person assigns their own level of importance to every topic',
+    's4.p2':'Inconsistency','s4.p3':'Languages','s4.p4':'Time zones','s4.p5':'Culture',
+    's4.p6':'Knowledge loss',
+    's4.s1':'Prioritisation','s4.s2':'Determinism','s4.s3':'Native multilingual',
+    's4.s4':'Asynchrony','s4.s5':'Localisation','s4.s6':'Structured transfer',
+    's5.lbl':'Architecture',
+    's5.title':'Two agent types, one shared knowledge base.',
+    's5.sub':'Check-in agents capture what the team knows; query agents answer from that same shared base.',
+    's5.user':'User','s5.reports':'Reports','s5.checkin':'Check-in<br>Agent',
+    's5.summary':'Summary','s5.writes':'Writes','s5.kb':'Knowledge base',
+    's5.reads':'Reads','s5.query':'Query<br>Agent','s5.answer':'Answer','s5.asks':'Asks',
+    's5.manager':'Manager',
+    's5.leg1':'Check-in · capture and store','s5.leg2':'Query · retrieve and respond',
+    's6.lbl':'Phase 1','s6.title':'One person, one dedicated agent.',
+    's6.body':"Every person in the organisation has their own agent. Every day it holds a brief conversation with them — in their language, at their pace — capturing what they're experiencing at work.",
+    's6.t1':"Hi, [name]. I'm María, your check-in assistant. Shall we get started?",
+    's6.t2':'Yes.',
+    's6.t3':'Where did you work today and what were your hours?',
+    's6.t4':'Remote, from five to eleven-thirty.',
+    's6.t5':'Got it. What were you working on today?',
+    's6.t6':'We have a deploy tomorrow, so I was finishing some last-minute tickets on the tokens and audiences page.',
+    's6.t7':'Sure. What kind of tickets were they? Any that took longer than expected?',
+    's6.t8':"The tokens page and the BSUID; everything is working correctly. There's one audiences ticket left that we'll resolve tomorrow with [a colleague], who isn't working today.",
+    's6.t9':'Got it. Anything else you were working on today?',
+    's6.t10':'Yes, I finished the deploy documentation with the changelog, the summary of the Max Prices meeting, updated Jira tickets and had a meeting with [three colleagues]. I also spoke with [a colleague] from marketing.',
+    's6.t11':"Sounds like a busy one. Anything else you'd like to report?",
+    's6.t12':'No.',
+    's6.t13':"Here are yesterday's group updates: the DPA for a dental client is being finalised. Progress on the Google Contact integration. An upgrades offer was prioritised. The Max Price redesign now includes country selection. The roadmap will kick off next week.",
+    's6.t14':'Thanks.',
+    's6.t15':'Thanks. Have a good day tomorrow.',
+    's7.lbl':'Phase 2 — Share','s7.title':'Knowledge gets shared.',
+    's7.body':"Every manager also has their own agent. When they need it, they ask out loud — in their language, from wherever they are — and get a brief answer built from what the team reported.",
+    's7.t1':"Hi, [Manager]. I'm María, your assistant for querying your team. What would you like to know?",
+    's7.t2':'What has [Employee A] been doing this week?',
+    's7.t3':'She\'s been quite active this week: she worked on Meta catalogues, handled some invoices and reviewed tickets with [a colleague]. She had a meeting about VSDAY and the new Meta pricing. On 31 August she was in the office from 8:30 to 17:30.',
+    's7.t4':'Were there any issues with the inbox for all project?',
+    's7.t5':'Yes, there were a few. On 22 July, [Colleague 1] reported errors when sending messages via the inbox. On 13 July, [Employee A] left it pending a validation. And on 27 August, [Colleague 2] found an error installing the new version for a client, which was resolved by clearing the cache.',
+    's7.t6':"No, that's fine.",
+    's7.t7':"Great. If you need anything else, I'm here.",
+    's8.lbl':'Experiment · June 2026',
+    's8.title':'Where we started — June experiment.',
+    's8.stat1sub':'<strong>traps rejected</strong> — always cites the source',
+    's8.stat2sub':'<strong>correct queries</strong> — in natural language',
+    's8.stat3sub':'<strong>average per check-in</strong> — 131 in June',
+    's8.c1t':'Subjectivity <span class="arr">→</span> Prioritisation',
+    's8.c1d':'Retrieves only what\'s relevant and synthesises it — <strong>reconstructed a decision spread across 3 dates</strong>.',
+    's8.c2t':'Inconsistency <span class="arr">→</span> Determinism',
+    's8.c2d':'Consistent, traceable answers — <strong>5 of 5 hallucination attempts rejected</strong>.',
+    's8.c3t':'Languages <span class="arr">→</span> Native multilingual',
+    's8.c3d':'Check-ins in Spanish and English — <strong>native voices, not translation</strong>.',
+    's8.c4t':'Schedules <span class="arr">→</span> Asynchrony',
+    's8.c4d':'<strong>131 asynchronous check-ins</strong> without spending time in meetings.',
+    's8.c5t':'Culture <span class="arr">→</span> Localisation',
+    's8.c5d':'Native voice and idioms by region — <strong>Argentine, Spanish and more Spanish varieties</strong>, adapted to cultural context.',
+    's8.c6t':'Loss <span class="arr">→</span> Structured transfer',
+    's8.c6d':'Converts into <strong>structured, traceable records</strong> the knowledge that would otherwise be lost, attributed by person, company and date.',
+    's9.lbl':'Pilot · August 2026',
+    's9.title':'Nine people, one month of check-ins.',
+    's9.stat1sub':'<strong>completion rate</strong> — across all nine people',
+    's9.stat2sub':'<strong>correct answers</strong> — across 92 questions',
+    's9.stat3sub':'<strong>calls in August</strong> — seven of nine, every day',
+    's9.c1t':'Adoption <span class="arr">→</span> A daily habit',
+    's9.c1d':'Seven of the nine report every day — <strong>the longest streak is 19 consecutive days</strong>.',
+    's9.c2t':'Consistency <span class="arr">→</span> Week after week',
+    's9.c2d':'The habit solidified over the month — <strong>from 97% to 100% in four weeks</strong>.',
+    's9.c3t':'Reliability <span class="arr">→</span> A service that holds up',
+    's9.c3d':'Of the 169 August calls, <strong>90% ran without any failure</strong> — and none dropped.',
+    's9.c4t':'Summary <span class="arr">→</span> Listened to in full',
+    's9.c4d':'<strong>85% listen to the full summary</strong> — the updates reach them every morning.',
+    's9.c5t':'Accuracy <span class="arr">→</span> Solid answers',
+    's9.c5d':'Tested with 92 real questions — <strong>82% answered correctly</strong>, and it flags when it has no data.',
+    's9.c6t':'Always answers <span class="arr">→</span> Never fills gaps',
+    's9.c6d':'Every question gets an answer, even if it\'s <strong>"I don\'t have that data"</strong>.',
+    's10.lbl':'What we fixed',
+    's10.title':'From experiment to pilot: five things fixed.',
+    's10.b1b':'<strong>Turn-taking</strong> · the agent interrupted and repeated questions',
+    's10.b1a':'Waits and lets each person finish.',
+    's10.b2b':'<strong>Data extraction</strong> · reasoning mode tripled wait times and lost data',
+    's10.b2a':'Without that mode: three times faster with no losses.',
+    's10.b3b':'<strong>Time zone</strong> · "yesterday" failed by up to 16 h for managers outside Madrid',
+    's10.b3a':"Each manager's own time zone is used.",
+    's10.b4b':'<strong>Silences</strong> · the call dropped while the person was thinking',
+    's10.b4a':'Waits while you think.',
+    's10.b5b':'<strong>Truncated responses</strong> · the agent cut off answers mid-sentence',
+    's10.b5a':'Now they reach their natural end.',
+    's11.lbl':'Risks and mitigations',
+    's11.title':'Every risk has its mitigation by design.',
+    's11.r1':'Check-in fatigue','s11.m1':'Brief, asynchronous and in their language.',
+    's11.r2':'Privacy and data','s11.m2':'Data in the EU with consent.',
+    's11.r3':'Incorrect answers','s11.m3':'Answers are always traceable.',
+    's11.r4':'Feeling like a form','s11.m4':'A real conversation, not a questionnaire read aloud.',
+    's11.r5':'Vendor lock-in','s11.m5':'No vendor is indispensable: all can be replaced.',
+    'sa.lbl':'Learnings','sa.title':'What must be done, no matter what.',
+    'sa.body':"Answers JP's question: what have we learnt from the pilot and what conclusions are non-negotiable for the next phase?",
+    'sa.li1':'What worked better than expected?',
+    'sa.li2':'What needs to change before we scale?',
+    'sa.li3':'What are we ruling out for good?',
+    's12.lbl':"What's next",'s12.title':'Three fronts at once.',
+    's12.n1':'01 · Languages','s12.t1':'More languages',
+    's12.d1':'More languages, more cultural variants and a dedicated agent for each.',
+    's12.n2':'02 · Integrations','s12.t2':'More sources',
+    's12.d2':'CRM, calendars and WhatsApp, so the query agent can use them too.',
+    's12.n3':'03 · Access','s12.t3':'Permissions',
+    's12.d3':'Access follows the org chart: a manager sees their team, a director their area.',
+    'se.lbl':'Team','se.title':'The people behind it.','se.role1':'Owner',
+    's13.cta':'Try it','s13.h':'Try the agents yourself.',
+    's13.sub':'Talk to <span>Her</span> — point your camera and start.',
+    's13.role':'Scan and talk to the agent',
+    'shared.solution':'Solution','shared.before':'Before','shared.after':'After',
+    'shared.risk':'Risk','shared.mitigation':'Mitigation'
+  }
+};
+(function(){
+  var STORAGE_KEY='her_lang', URL_PARAM='lang';
+  function getInitialLang(){
+    var url=new URLSearchParams(window.location.search).get(URL_PARAM);
+    if(url==='en'||url==='es') return url;
+    var stored=localStorage.getItem(STORAGE_KEY);
+    if(stored) return stored;
+    return navigator.language.startsWith('en')?'en':'es';
+  }
+  function applyLang(lang){
+    var dict=i18n[lang];
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v=dict[el.dataset.i18n];
+      if(v!==undefined) el.textContent=v;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var v=dict[el.dataset.i18nHtml];
+      if(v!==undefined) el.innerHTML=v;
+    });
+    var btn=document.getElementById('lang-toggle');
+    btn.textContent=lang.toUpperCase();
+    btn.classList.toggle('en',lang==='en');
+    localStorage.setItem(STORAGE_KEY,lang);
+    history.replaceState(null,'',lang==='es'?window.location.pathname:'?lang=en');
+  }
+  var currentLang=getInitialLang();
+  document.getElementById('lang-toggle').addEventListener('click',function(){
+    currentLang=currentLang==='es'?'en':'es';
+    applyLang(currentLang);
+  });
+  if(currentLang!=='es') applyLang(currentLang);
 })();
 </script>
 
