@@ -28,6 +28,25 @@ her/
     └── web-review-mode.js
 ```
 
+## Tareas pendientes (próxima versión)
+
+### Switch de idioma ES / EN
+
+Implementar selector de idioma a nivel de presentación. Un objeto JS con todas las cadenas en `es` y `en`, y un botón toggle que intercambia el idioma en todos los slides a la vez.
+
+**Condición de inicio:** contenido en español cerrado (textos finales, transcripciones, S14). Traducir antes de montar el switch para no traducir dos veces.
+
+**Mecánica prevista:**
+- Objeto `i18n = { es: {...}, en: {...} }` con ~60–80 strings del deck
+- Botón `ES / EN` en la barra de navegación del deck
+- Idioma persistido en `localStorage`
+- Parámetro `?lang=en` en la URL para compartir directamente la versión inglesa
+- Un solo archivo HTML, una sola fuente de verdad
+
+**Issues relacionados:** AW-151 (textos en español), AW-153 (decisiones de equipo pendientes que afectan al contenido)
+
+---
+
 ## Modo de revisión editorial
 
 La presentación incluye una barra de revisión para dejar notas directamente sobre los elementos. Para activarla:
