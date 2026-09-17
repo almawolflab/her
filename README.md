@@ -5,7 +5,8 @@ Sistema de check-in diario por voz para equipos, construido sobre agentes de IA 
 | | |
 |---|---|
 | **Índice de versiones** | [gabriel-almawolf.github.io/her](https://gabriel-almawolf.github.io/her/) |
-| **V4 · Actual** | [gabriel-almawolf.github.io/her/v4](https://gabriel-almawolf.github.io/her/v4/) |
+| **V5 · Actual** | [gabriel-almawolf.github.io/her/v5](https://gabriel-almawolf.github.io/her/v5/) |
+| **V4** | [gabriel-almawolf.github.io/her/v4](https://gabriel-almawolf.github.io/her/v4/) |
 
 ## ¿Qué es Her?
 
@@ -19,11 +20,12 @@ Cada versión vive en su propia carpeta dentro de `main`. Para publicar una nuev
 her/
 ├── index.html          # Índice de versiones (gabriel-almawolf.github.io/her/)
 ├── robots.txt
-├── v4/                 # Versión 4 — Piloto Agosto 2026
+├── v4/                 # Versión 4 — Piloto Agosto 2026 (revisada por JP/Edu)
 │   ├── index.html
 │   └── web-review-mode.js
-└── v5/                 # Próxima versión (cuando corresponda)
-    └── ...
+└── v5/                 # Versión 5 — Correcciones JP, Septiembre 2026
+    ├── index.html
+    └── web-review-mode.js
 ```
 
 ## Modo de revisión editorial
