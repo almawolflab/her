@@ -247,6 +247,8 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 .tr-who{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;min-width:58px;flex-shrink:0;padding-top:2px}
 .tr-who.ag{color:var(--red)}.tr-who.us{color:var(--gray)}
 .tr-text{font-size:11.5px;color:var(--navy);line-height:1.45;font-style:italic}
+#s6 .tr-text{font-size:10px;line-height:1.4}
+#s6 .tr-line{margin-bottom:3px}
 
 .qr-bg{position:absolute;bottom:0;left:0;pointer-events:none}
 
@@ -460,15 +462,22 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
     </div>
     <div class="s6r" style="padding:80px 56px 56px 16px">
       <div class="q-sup">Transcripción real · Piloto agosto 2026</div>
-      <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px">
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Hola, [Empleada]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:3px">
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Hola, [nombre]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
         <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Sí.</span></div>
         <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">¿Desde dónde trabajaste hoy y en qué horario?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">De ocho y media.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Entendido, desde casa. ¿En qué estuviste trabajando hoy? ¿Algún proyecto específico?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Me ocupó bastante el proyecto de catálogos de [la plataforma], subiendo los artículos de un cliente. También atendí el inbox y consultas en tickets.</span></div>
-        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Vaya, se nota que sobre ese proyecto: ¿qué tipo de artículos y por qué se rechazan?</span></div>
-        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Son productos del todo con las políticas de [la plataforma]; hay que ajustar cómo los presentamos para que los acepten.</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Remoto, de cinco a once y media.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Entendido. ¿En qué estuviste trabajando hoy?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Mañana tenemos un deploy, así que estuve acabando unos tickets de última hora sobre la página de tokens y audiencias.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Claro. ¿Y qué tipo de tickets eran? ¿Alguno que te haya tomado más tiempo?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">La página de tokens y el BSUID; todo funciona correctamente. Solo queda un ticket de audiencias que mañana resolvemos con [un compañero], que hoy no trabaja.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Perfecto. ¿Algo más en lo que hayas estado trabajando hoy?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Sí, terminé la documentación del deploy con el changelog, el resumen de la reunión de Max Prices, actualicé tickets de Jira y me reuní con [tres compañeros]. También hablé con [un compañero] de marketing.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Se nota que estuvo intenso. ¿Algo más que quieras reportar?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">No.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Te cuento las novedades del grupo de ayer: se finaliza el DPA para un cliente dental. Se avanzó en la integración de Google Contact. Se priorizó una oferta de upgrades. El rediseño de Max Price incorpora selección de países. Se iniciará el roadmap la próxima semana.</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text">Gracias.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text">Gracias. Que te vaya bien mañana.</span></div>
       </div>
     </div>
   </section>
