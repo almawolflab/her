@@ -243,6 +243,8 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 .qr-img img{width:100%;height:100%;object-fit:contain;border-radius:4px}
 .qr-name{font-size:15px;font-weight:600;color:var(--navy)}
 .qr-role{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+.qr-link{display:inline-block;margin-top:10px;font-size:11px;color:var(--red);text-decoration:none;font-weight:500}
+.qr-link:hover{text-decoration:underline}
 .tr-line{display:flex;gap:10px;margin-bottom:5px;align-items:baseline}
 .tr-who{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;min-width:58px;flex-shrink:0;padding-top:2px}
 .tr-who.ag{color:var(--red)}.tr-who.us{color:var(--gray)}
@@ -763,21 +765,25 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
           <div class="qr-img"><img src="qr-burton.png" alt="QR Burton"></div>
           <div class="qr-name">Burton</div>
           <div class="qr-role" data-i18n="s13.role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=a6c01ba8-990c-45c6-9c09-48ff7e6f0d91" target="_blank" rel="noopener" data-i18n="s13.link">Link al agente →</a>
         </div>
         <div class="qr-card">
           <div class="qr-img"><img src="qr-pedro.png" alt="QR Pedro"></div>
           <div class="qr-name">Pedro</div>
           <div class="qr-role" data-i18n="s13.role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=d4b413b6-7375-497c-9bf5-618bf23396da" target="_blank" rel="noopener" data-i18n="s13.link">Link al agente →</a>
         </div>
         <div class="qr-card">
           <div class="qr-img"><img src="qr-edu.png" alt="QR Edu"></div>
           <div class="qr-name">Edu</div>
           <div class="qr-role" data-i18n="s13.role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=3eb4c17b-75cc-46ec-bf0b-c4e9678dd8ea" target="_blank" rel="noopener" data-i18n="s13.link">Link al agente →</a>
         </div>
         <div class="qr-card">
-          <div class="qr-img"><img src="qr-jose.png" alt="QR José"></div>
+          <div class="qr-img"><img src="qr-jose.png" alt="QR Jose"></div>
           <div class="qr-name">Jose</div>
           <div class="qr-role" data-i18n="s13.role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=df1a8034-2912-48dd-b6da-5a40006169d4" target="_blank" rel="noopener" data-i18n="s13.link">Link al agente →</a>
         </div>
       </div>
     </div>
@@ -963,6 +969,7 @@ const i18n = {
     's13.cta':'Pruébalo','s13.h':'Prueba los agentes tú mismo.',
     's13.sub':'Habla con <span>Her</span> — apunta con la cámara y empieza.',
     's13.role':'Escanea y habla con el agente',
+    's13.link':'Link al agente →',
     'shared.solution':'Solución','shared.before':'Antes','shared.after':'Después',
     'shared.risk':'Riesgo','shared.mitigation':'Mitigación'
   },
@@ -1090,6 +1097,7 @@ const i18n = {
     's13.cta':'Try it','s13.h':'Try the agents yourself.',
     's13.sub':'Talk to <span>Her</span> — point your camera and start.',
     's13.role':'Scan and talk to the agent',
+    's13.link':'Agent link →',
     'shared.solution':'Solution','shared.before':'Before','shared.after':'After',
     'shared.risk':'Risk','shared.mitigation':'Mitigation'
   }
