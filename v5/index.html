@@ -252,6 +252,12 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 .tr-text{font-size:11.5px;color:var(--navy);line-height:1.45;font-style:italic}
 #s6 .tr-text{font-size:10px;line-height:1.4}
 #s6 .tr-line{margin-bottom:3px}
+.ap{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.ap-play{width:24px;height:24px;border-radius:50%;background:var(--red);border:none;cursor:pointer;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0;line-height:1;transition:background .15s}
+.ap-play.playing{background:var(--navy)}
+.ap-bar{flex:1;height:3px;background:var(--border);border-radius:2px;cursor:pointer;overflow:hidden}
+.ap-prog{height:100%;background:var(--red);border-radius:2px;width:0%;transition:width .4s linear}
+.ap-time{font-size:9px;color:var(--gray);min-width:32px;font-feature-settings:"tnum"}
 
 .qr-bg{position:absolute;bottom:0;left:0;pointer-events:none}
 
@@ -467,7 +473,13 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
     </div>
     <div class="s6r" style="padding:80px 56px 56px 16px">
       <div class="q-sup">Transcripción real · Piloto agosto 2026</div>
-      <div style="margin-top:12px;display:flex;flex-direction:column;gap:3px">
+      <div class="ap">
+        <audio src="audios/checkin_eliana_26ago.wav"></audio>
+        <button class="ap-play">▶</button>
+        <div class="ap-bar"><div class="ap-prog"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3px">
         <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t1">Hola, [nombre]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
         <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t2">Sí.</span></div>
         <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t3">¿Desde dónde trabajaste hoy y en qué horario?</span></div>
@@ -499,7 +511,13 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
     </div>
     <div class="s7r" style="padding:80px 56px 56px 16px">
       <div class="q-sup">Transcripción real · Piloto septiembre 2026</div>
-      <div style="margin-top:12px;display:flex;flex-direction:column;gap:5px">
+      <div class="ap">
+        <audio src="audios/manager_eduardo_04sep.wav"></audio>
+        <button class="ap-play">▶</button>
+        <div class="ap-bar"><div class="ap-prog"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+      <div style="margin-top:4px;display:flex;flex-direction:column;gap:5px">
         <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text" data-i18n="s7.t1">Hola, [Manager]. Soy María, tu asistente para consultar a tu equipo. ¿Qué te gustaría saber?</span></div>
         <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text" data-i18n="s7.t2">¿Qué ha hecho [Empleada A] esta semana?</span></div>
         <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text" data-i18n="s7.t3">Esta semana ha estado bastante activa: trabajó en los catálogos de Meta, gestionó unas facturas y revisó tickets con [una compañera]. Tuvo una reunión sobre el VSDAY y los nuevos precios en Meta. El 31 de agosto estuvo en la oficina de 8:30 a 17:30.</span></div>
@@ -815,6 +833,8 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
 
   function go(n){
     slides[cur].classList.remove('active');
+    document.querySelectorAll('.ap audio').forEach(function(a){ a.pause(); });
+    document.querySelectorAll('.ap-play').forEach(function(b){ b.textContent='▶'; b.classList.remove('playing'); });
     cur = (n + slides.length) % slides.length;
     slides[cur].classList.add('active');
     cnt.textContent = (cur+1) + ' / ' + slides.length;
@@ -1150,6 +1170,37 @@ const i18n = {
   };
 </script>
 <script src="web-review-mode.js"></script>
+<script>
+(function(){
+  function fmt(s){return Math.floor(s/60)+':'+(Math.floor(s%60)<10?'0':'')+Math.floor(s%60);}
+  document.querySelectorAll('.ap').forEach(function(ap){
+    var audio=ap.querySelector('audio');
+    var btn=ap.querySelector('.ap-play');
+    var prog=ap.querySelector('.ap-prog');
+    var time=ap.querySelector('.ap-time');
+    var bar=ap.querySelector('.ap-bar');
+    btn.addEventListener('click',function(){
+      if(audio.paused){
+        document.querySelectorAll('.ap audio').forEach(function(a){if(a!==audio)a.pause();});
+        document.querySelectorAll('.ap-play').forEach(function(b){if(b!==btn){b.textContent='▶';b.classList.remove('playing');}});
+        audio.play();btn.textContent='⏸';btn.classList.add('playing');
+      }else{audio.pause();btn.textContent='▶';btn.classList.remove('playing');}
+    });
+    audio.addEventListener('timeupdate',function(){
+      if(audio.duration)prog.style.width=(audio.currentTime/audio.duration*100)+'%';
+      time.textContent=fmt(audio.currentTime);
+    });
+    audio.addEventListener('ended',function(){
+      btn.textContent='▶';btn.classList.remove('playing');
+      prog.style.width='0%';time.textContent='0:00';audio.currentTime=0;
+    });
+    bar.addEventListener('click',function(e){
+      var r=bar.getBoundingClientRect();
+      if(audio.duration)audio.currentTime=(e.clientX-r.left)/r.width*audio.duration;
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
