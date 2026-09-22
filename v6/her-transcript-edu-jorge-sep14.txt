@@ -1,0 +1,33 @@
+TRANSCRIPCIÓN REAL · PILOTO SEPTIEMBRE 2026
+Llamada: 01a09fab-0918-7000-ac6d-56be55b11e0d
+Fecha: 2026-09-14
+Agente: Eduardo Marchuet (PMO, AlmaWolf)
+Asistente: María (HER — agente de consulta)
+
+---
+
+MARÍA:    Hola, Eduardo. Soy María.
+          Tu asistente para consultar a tu equipo. ¿Qué te gustaría saber?
+
+EDUARDO:  Me gustaría saber qué ha hecho Jorge en la última semana de julio.
+
+MARÍA:    Consulto.
+
+          En la última semana de julio, Jorge ha estado muy activo.
+          Trabajó en la presentación de Dental Company, entregando una propuesta
+          final y haciendo seguimiento.
+          También colaboró con GoContact en proyectos para Divina Pastora
+          y una nueva empresa de recambios.
+          Además, estuvo con José Ramón de IntelliSoc para la integración de CRM.
+          Y trabajó con clientes como Hobi y Heberth.
+          Participó en reuniones de equipo de ventas y en una global sobre WhatsApp Vapi.
+          Finalizó un chatbot para Azir y tuvo un weekly con la dirección.
+          ¿Hay algo más que quieras saber sobre lo que ha hecho Jorge?
+
+---
+
+VERIFICACIÓN:
+- Fuente primaria (Vapi API messages): 7 mensajes — coincide
+- Fuente secundaria (Deepgram final transcripts JSONL): 16 segmentos deduplicados — coincide
+- Sin recortes ni divergencias detectadas
+- Audio: her-transcript-edu-jorge-sep14-stereo.wav (13 MB, stereo WAV)

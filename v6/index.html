@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Proyecto Her — AlmaWolf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --red:#C13B2F;
+  --navy:#1C1C2E;
+  --bg:#EDECEB;
+  --white:#FFFFFF;
+  --gray:#6B7280;
+  --dark:#0F1119;
+  --border:#D5D4D2;
+  --f:'Inter',system-ui,sans-serif;
+}
+
+html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:hidden}
+
+/* ── DECK ── */
+.deck{width:100vw;height:100vh;position:relative}
+.slide{position:absolute;inset:0;display:none;overflow:hidden}
+.slide.active{display:flex}
+
+/* ── CHROME ── */
+.lbl{
+  position:absolute;top:32px;left:44px;
+  display:flex;align-items:center;gap:9px;
+  font-size:10.5px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--red);
+}
+.lbl .d{width:9px;height:9px;background:var(--red);transform:rotate(45deg);flex-shrink:0}
+.lbl.plain{color:var(--gray);font-weight:500}
+
+.aw{position:absolute;top:22px;right:40px}
+
+/* ── AlmaWolf SVG logo ── */
+.aw svg,.aw img{height:28px;width:auto}
+
+/* ── BACKGROUNDS ── */
+.bg-l{background:var(--bg)}
+.bg-w{background:var(--white)}
+.bg-d{background:var(--dark)}
+
+/* ── TYPE ── */
+.d1{font-size:clamp(38px,5.2vw,76px);font-weight:300;line-height:1.08;color:var(--navy)}
+.d1.red{color:var(--red)}
+.d1.bold{font-weight:700}
+.d2{font-size:clamp(28px,3.5vw,52px);font-weight:400;line-height:1.2;color:var(--navy)}
+.body{font-size:clamp(13px,1.15vw,15.5px);line-height:1.65;color:var(--gray)}
+.stat-n{font-size:clamp(36px,4.8vw,68px);font-weight:800;line-height:1;color:var(--red)}
+.stat-n.mono{font-variant-numeric:tabular-nums}
+
+/* ── WAVEFORM ── */
+.wave{display:flex;align-items:center;gap:2.5px;height:38px;margin-bottom:18px}
+.wave span{display:block;width:3px;border-radius:2px;background:var(--red)}
+
+/* ── PORTADA ── */
+#s1{background:var(--white);flex-direction:column;justify-content:flex-end;padding:0 0 88px 80px}
+.port-bg{position:absolute;inset:0;pointer-events:none}
+.port-red{
+  position:absolute;top:0;left:0;width:46%;height:56%;
+  background:var(--red);
+  clip-path:polygon(0 0,100% 0,0 100%);
+}
+.port-gray{
+  position:absolute;top:0;left:0;width:56%;height:66%;
+  background:#C8C7C5;opacity:.45;
+  clip-path:polygon(0 0,100% 0,0 100%);
+}
+.port-content{position:relative;z-index:1}
+.port-title{font-size:clamp(48px,6.5vw,88px);font-weight:300;color:var(--navy);line-height:1.05;margin-bottom:12px}
+.port-sub{font-size:clamp(22px,2.4vw,32px);font-weight:300;color:var(--gray);margin-bottom:24px}
+
+/* ── ÍNDICE ── */
+#s2{background:var(--bg);flex-direction:column;padding:80px 80px 60px;justify-content:space-between}
+.idx-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 100px;margin-top:36px}
+.idx-row{display:flex;gap:18px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--border);font-size:clamp(13px,1.35vw,17px);color:var(--navy)}
+.idx-n{color:var(--red);font-size:clamp(12px,1.2vw,15px);font-weight:500;min-width:26px}
+
+/* ── OBJETIVO ── */
+#s3{background:var(--bg);flex-direction:column;justify-content:center;padding:80px}
+#s3 .big{font-size:clamp(32px,4.4vw,68px);font-weight:300;line-height:1.1;max-width:52%}
+#s3 .big .accent{color:var(--red)}
+
+/* ── PROBLEMA ── */
+#s4{background:var(--bg);padding:72px 56px 56px;align-items:stretch}
+.s4l{width:36%;display:flex;flex-direction:column;justify-content:center;padding-right:36px}
+.s4r{flex:1;display:flex;flex-direction:column;justify-content:center;gap:7px}
+
+.dl{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:9px}
+.dl li{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--navy);line-height:1.45}
+.dl li::before{content:'';display:block;width:7px;height:7px;min-width:7px;background:var(--red);transform:rotate(45deg);margin-top:4px}
+
+.prow{
+  display:grid;grid-template-columns:1fr 28px 1fr;
+  align-items:center;background:var(--white);
+  border-radius:7px;border:1px solid var(--border);overflow:hidden;
+}
+.prow .pp{padding:8px 16px;font-size:13px;color:var(--navy)}
+.prow .pp-col{display:flex;flex-direction:column}
+.prow .pp-col .pp{padding-bottom:2px}
+.prow .pp-desc{padding:0 16px 8px;font-size:10px;color:#6B7280;line-height:1.3}
+.prow .pa{color:var(--red);font-size:14px;text-align:center}
+.prow .ps{padding:8px 16px}
+.prow .ps-lbl{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:1px}
+.prow .ps-txt{font-size:13px;color:var(--navy);font-weight:500}
+.prow .ps-desc{font-size:10px;color:#6B7280;margin-top:3px;line-height:1.3}
+
+/* ── ARQUITECTURA ── */
+#s5{background:var(--bg);flex-direction:column;padding:48px 72px 40px;justify-content:space-between}
+#s5 .arch-sup{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);margin-bottom:10px}
+#s5 .arch-h{font-size:clamp(20px,2.6vw,36px);font-weight:700;color:var(--navy)}
+#s5 .arch-sub{font-size:13px;color:var(--gray);margin-top:6px;max-width:680px;line-height:1.5}
+
+.arch-wrap{flex:1;display:flex;align-items:center;justify-content:center;gap:0;padding:32px 0 16px;min-height:0}
+.a-actor{display:flex;flex-direction:column;align-items:center;gap:6px}
+.a-icon{font-size:24px}
+.a-lbl{font-size:10px;color:var(--gray);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+
+.a-box{
+  background:var(--dark);color:#fff;border-radius:8px;
+  padding:18px 20px;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:120px;
+}
+.a-box .a-ico{font-size:18px}
+.a-box .a-ttl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-align:center;line-height:1.3}
+
+.a-db{display:flex;flex-direction:column;align-items:center;gap:6px}
+.a-db-lbl{font-size:10px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase}
+
+.a-arr{display:flex;flex-direction:column;align-items:center;padding:0 14px;gap:3px}
+.a-arr-ln{width:52px;height:1.5px;background:var(--navy);position:relative}
+.a-arr-ln::after{content:'▶';position:absolute;right:-8px;top:-6.5px;font-size:9px;color:var(--navy)}
+.a-arr-ln.r{background:var(--red)}
+.a-arr-ln.r::after{color:var(--red)}
+.a-arr-lbl{font-size:10px;color:var(--gray);white-space:nowrap}
+.a-arr-lbl.r{color:var(--red)}
+
+.a-dash{display:flex;flex-direction:column;align-items:center;padding:0 14px;gap:3px}
+.a-dash-ln{width:52px;border-top:1.5px dashed var(--gray)}
+.a-dash-lbl{font-size:10px;color:var(--gray)}
+
+.arch-legend{display:flex;justify-content:center;gap:48px;padding-top:6px}
+.al-item{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--gray);font-style:italic}
+.al-d{width:8px;height:8px;transform:rotate(45deg);flex-shrink:0}
+.al-d.dk{background:var(--dark)}
+.al-d.rd{background:var(--red)}
+
+/* ── FASE 1 ── */
+#s6{background:var(--bg);padding:72px 56px 56px;align-items:stretch}
+.s6l{width:40%;display:flex;flex-direction:column;justify-content:center;padding-right:44px}
+.s6r{flex:1;display:flex;flex-direction:column;justify-content:center}
+.q-sup{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:12px}
+.qlist{display:flex;flex-direction:column;gap:7px}
+.qi{
+  background:var(--white);border-radius:4px;
+  border-left:3px solid var(--red);
+  padding:13px 18px;display:flex;align-items:center;justify-content:space-between;
+}
+.qi .qt{font-size:13px;color:var(--navy);font-style:italic}
+.qi .qtag{font-size:11px;color:var(--gray);margin-left:20px;white-space:nowrap}
+
+/* ── FASE 2 ── */
+#s7{background:var(--bg);padding:72px 56px 56px;align-items:stretch}
+.s7l{width:40%;display:flex;flex-direction:column;justify-content:center;padding-right:44px}
+.s7r{flex:1;display:flex;flex-direction:column;justify-content:center}
+.s7 .qi{font-size:12.5px}
+
+/* ── STATS SLIDES (8 & 9) ── */
+#s8,#s9{background:var(--bg);flex-direction:column;padding:48px 60px 40px}
+.exp-lbl{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+.exp-h{font-size:clamp(22px,3vw,42px);font-weight:700;color:var(--navy);margin-top:4px}
+
+.stat-banner{
+  background:var(--dark);border-radius:10px;
+  padding:24px 36px;margin:16px 0;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;
+}
+.sb-item .sb-sub{font-size:11.5px;color:rgba(255,255,255,.65);margin-top:5px;line-height:1.45}
+.sb-item .sb-sub strong{color:#fff}
+
+.rg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;flex:1}
+.rc{background:var(--white);border-radius:8px;border:1px solid var(--border);padding:14px 18px}
+.rc-h{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+.rc-ck{width:17px;height:17px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;flex-shrink:0}
+.rc-t{font-size:12px;color:var(--navy);line-height:1.3}
+.rc-t .arr{color:var(--red);font-weight:600}
+.rc-b{font-size:11px;color:var(--gray);line-height:1.5}
+.rc-b strong{color:var(--navy)}
+
+/* ── CORREGIDO ── */
+#s10{background:var(--bg);flex-direction:column;padding:64px 60px 44px}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;flex:1}
+.cpair{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-radius:8px;overflow:hidden;border:1px solid var(--border);
+}
+.cpair.solo{grid-column:1 / -1;width:50%}
+.cb,.ca{background:var(--white);padding:14px 16px}
+.ca{border-left:1px solid var(--border)}
+.clbl{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--gray);margin-bottom:5px}
+.clbl.a{color:var(--red)}
+.ctxt{font-size:12px;color:var(--navy);line-height:1.45}
+.ctxt strong{font-weight:600}
+
+/* ── RIESGOS ── */
+#s11{background:var(--bg);flex-direction:column;padding:64px 60px 44px;align-items:stretch}
+#s11 .rh{text-align:center;font-size:clamp(22px,2.8vw,38px);color:var(--navy);margin-top:20px}
+.risg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;flex:1}
+.rpair{display:grid;grid-template-columns:1fr 1fr;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.rpair.solo{grid-template-columns:1fr 1fr}
+.rc2,.rm{background:var(--white);padding:14px 16px}
+.rm{border-left:1px solid var(--border)}
+.rlbl{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:5px}
+.rlbl.m{color:var(--gray)}
+.rtxt{font-size:13px;color:var(--navy);line-height:1.4}
+
+/* ── SIGUIENTE ── */
+#s12{background:var(--bg);flex-direction:column;padding:64px 60px 44px}
+.ng{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:28px;flex:1}
+.nc{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:26px 22px;display:flex;flex-direction:column}
+.nc-d{width:22px;height:22px;background:var(--red);transform:rotate(45deg);margin-bottom:18px}
+.nc-n{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:5px}
+.nc-t{font-size:19px;color:var(--navy);font-weight:400;margin-bottom:10px}
+.nc-desc{font-size:13px;color:var(--gray);line-height:1.55;margin-top:auto}
+
+/* ── QR ── */
+#s13{background:var(--white);flex-direction:column;align-items:center;justify-content:center;padding:56px}
+.qr-sup{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);position:absolute;top:28px;left:44px}
+.qr-wave{position:absolute;top:44px;left:44px}
+.qr-h{font-size:clamp(20px,2.6vw,34px);font-weight:600;color:var(--navy)}
+.qr-sub{font-size:clamp(13px,1.2vw,16px);color:var(--gray);margin-top:8px}
+.qr-sub span{color:var(--red);font-weight:500}
+.qr-cards{display:flex;gap:20px;margin-top:32px}
+.qr-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;width:175px;text-align:center}
+.qr-img{width:130px;height:130px;margin:0 auto 12px;background:#f4f4f4;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10.5px;color:var(--gray)}
+.qr-img img{width:100%;height:100%;object-fit:contain;border-radius:4px}
+.qr-name{font-size:15px;font-weight:600;color:var(--navy)}
+.qr-role{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+.qr-link{display:inline-block;margin-top:10px;font-size:11px;color:var(--red);text-decoration:none;font-weight:500}
+.qr-link:hover{text-decoration:underline}
+.tr-line{display:flex;gap:10px;margin-bottom:5px;align-items:baseline}
+.tr-who{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;min-width:58px;flex-shrink:0;padding-top:2px}
+.tr-who.ag{color:var(--red)}.tr-who.us{color:var(--gray)}
+.tr-text{font-size:11.5px;color:var(--navy);line-height:1.45;font-style:italic}
+#s6 .tr-text{font-size:10px;line-height:1.4}
+#s6 .tr-line{margin-bottom:3px}
+.ap{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.ap-play{width:24px;height:24px;border-radius:50%;background:var(--red);border:none;cursor:pointer;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0;line-height:1;transition:background .15s}
+.ap-play.playing{background:var(--navy)}
+.ap-bar{flex:1;height:3px;background:var(--border);border-radius:2px;cursor:pointer;overflow:hidden}
+.ap-prog{height:100%;background:var(--red);border-radius:2px;width:0%;transition:width .4s linear}
+.ap-time{font-size:9px;color:var(--gray);min-width:32px;font-feature-settings:"tnum"}
+
+.qr-bg{position:absolute;bottom:0;left:0;pointer-events:none}
+
+/* ── CIERRE ── */
+#s14{background:var(--white);flex-direction:column;justify-content:flex-end;padding:0 0 88px 80px}
+#s14 .port-red{width:36%;height:44%}
+#s14 .port-gray{width:44%;height:52%}
+#s14 .port-content .port-title{font-size:clamp(40px,5.5vw,72px)}
+
+/* ── NAV ── */
+.nav{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:10px;
+  background:rgba(15,17,25,.82);border-radius:24px;padding:7px 14px;
+  color:#fff;font-size:12.5px;backdrop-filter:blur(10px);z-index:200;
+  font-family:var(--f);
+}
+.nav button{background:none;border:none;color:rgba(255,255,255,.75);cursor:pointer;padding:3px 7px;font-size:15px;transition:color .15s}
+.nav button:hover{color:#fff}
+.nav .cnt{min-width:44px;text-align:center;color:rgba(255,255,255,.5);font-size:11px}
+.nav .kh{font-size:10px;color:rgba(255,255,255,.3);margin-left:4px}
+.nav .lang-sep{width:1px;height:16px;background:rgba(255,255,255,.2);margin:0 6px}
+#lang-toggle{background:none;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.75);cursor:pointer;padding:2px 8px;font-size:10px;border-radius:10px;letter-spacing:.08em;font-family:var(--f);transition:all .15s}
+#lang-toggle:hover{border-color:#fff;color:#fff}
+#lang-toggle.en{border-color:#C13B2F;color:#C13B2F}
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- ── S1 PORTADA ── -->
+  <section class="slide active" id="s1">
+    <div class="port-bg">
+      <div class="port-gray"></div>
+      <div class="port-red"></div>
+    </div>
+    <div class="port-content">
+      <div class="wave">
+        <span style="height:14px"></span><span style="height:22px"></span><span style="height:30px"></span>
+        <span style="height:20px"></span><span style="height:34px"></span><span style="height:26px"></span>
+        <span style="height:38px"></span><span style="height:22px"></span><span style="height:32px"></span>
+        <span style="height:16px"></span><span style="height:28px"></span><span style="height:20px"></span>
+        <span style="height:24px"></span><span style="height:14px"></span><span style="height:18px"></span>
+      </div>
+      <div class="port-title" data-i18n="port.title">Proyecto Her</div>
+      <div class="port-sub" data-i18n="port.sub">Realidad percibida accionable</div>
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB" style="height:28px;width:auto">
+    </div>
+  </section>
+
+  <!-- ── S2 ÍNDICE ── -->
+  <section class="slide bg-l" id="s2">
+    <div class="lbl"><span class="d"></span><span data-i18n="idx.lbl">Índice</span></div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="padding:80px 80px 60px;width:100%;display:flex;flex-direction:column;justify-content:space-between">
+      <div class="d2" style="margin-top:20px" data-i18n="idx.intro">Lo que vamos a ver.</div>
+      <div class="idx-grid">
+        <div>
+          <div class="idx-row"><span class="idx-n">01</span><span data-i18n="idx.01">El objetivo</span></div>
+          <div class="idx-row"><span class="idx-n">02</span><span data-i18n="idx.02">Problemas y soluciones</span></div>
+          <div class="idx-row"><span class="idx-n">03</span><span data-i18n="idx.03">Arquitectura</span></div>
+          <div class="idx-row"><span class="idx-n">04</span><span data-i18n="idx.04">Agente de check-in</span></div>
+          <div class="idx-row"><span class="idx-n">05</span><span data-i18n="idx.05">Agente de consulta</span></div>
+          <div class="idx-row"><span class="idx-n">06</span><span data-i18n="idx.06">Resultados del experimento</span></div>
+          <div class="idx-row"><span class="idx-n">07</span><span data-i18n="idx.07">Resultados del piloto</span></div>
+        </div>
+        <div>
+          <div class="idx-row"><span class="idx-n">08</span><span data-i18n="idx.08">Lo que hemos corregido</span></div>
+          <div class="idx-row"><span class="idx-n">09</span><span data-i18n="idx.09">Riesgos y mitigaciones</span></div>
+          <div class="idx-row"><span class="idx-n">10</span><span data-i18n="idx.10">Aprendizajes</span></div>
+          <div class="idx-row"><span class="idx-n">11</span><span data-i18n="idx.11">Siguientes fases</span></div>
+          <div class="idx-row"><span class="idx-n">12</span><span data-i18n="idx.12">Equipo</span></div>
+          <div class="idx-row"><span class="idx-n">13</span><span data-i18n="idx.13">QR</span></div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+  <!-- ── S3 OBJETIVO ── -->
+  <section class="slide bg-l" id="s3">
+    <div class="lbl"><span class="d"></span><span data-i18n="s3.lbl">El objetivo</span></div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="padding:80px;display:flex;flex-direction:column;justify-content:center;width:100%">
+      <div class="big" data-i18n-html="s3.big">
+        <span class="accent" style="color:var(--red)">Visibilizar y compartir</span><br>
+        el conocimiento de negocio<br>de cada individuo<br>de la organización.
+      </div>
+      <p class="body" style="max-width:380px;margin-top:24px" data-i18n="s3.body">
+        Un experimento para convertir ese conocimiento en inteligencia colectiva — de modo replicable y bajo cumplimiento normativo.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── S4 EL PROBLEMA ── -->
+  <section class="slide bg-l" id="s4">
+    <div class="lbl"><span class="d"></span><span data-i18n="s4.lbl">El problema</span></div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div class="s4l" style="padding-top:72px;padding-left:56px">
+      <div class="d2" style="font-size:clamp(22px,2.8vw,40px);line-height:1.15" data-i18n="s4.title">El conocimiento se evapora cada día.</div>
+      <p class="body" style="margin-top:10px" data-i18n="s4.sub">Muere en reuniones, llamadas y correos…</p>
+      <ul class="dl" style="margin-top:20px">
+        <li data-i18n="s4.li1">El manager no ve qué hizo su equipo sin preguntar.</li>
+        <li data-i18n="s4.li2">El CEO no tiene visión de grupo sin una reunión.</li>
+        <li data-i18n="s4.li3">Hay experiencias que no tienen dónde registrarse y no dejan rastro.</li>
+      </ul>
+    </div>
+    <div class="s4r" style="padding:56px 56px 40px 16px">
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="s4.p1">Relatividad</div><div class="pp-desc" data-i18n="s4.p1desc">Cada persona asigna una importancia a cada tema de modo subjetivo</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s1">Priorización</div><div class="ps-desc" data-i18n="s4.s1desc">El agente pondera cada tema por importancia real, no por quién más habla</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="s4.p2">Intermitente</div><div class="pp-desc" data-i18n="s4.p2desc">La disponibilidad y el ánimo del interlocutor varían según el momento</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s2">Determinismo</div><div class="ps-desc" data-i18n="s4.s2desc">Misma calidad de respuesta siempre, sin variación por estado de ánimo</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="s4.p3">Idiomas</div><div class="pp-desc" data-i18n="s4.p3desc">Las barreras lingüísticas limitan la profundidad de la conversación</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s3">Multiidioma nativo</div><div class="ps-desc" data-i18n="s4.s3desc">Conversa en el idioma de cada persona sin perder matices</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="s4.p4">Husos horarios</div><div class="pp-desc" data-i18n="s4.p4desc">La diferencia horaria impide la sincronía entre equipos distribuidos</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s4">Asincronía</div><div class="ps-desc" data-i18n="s4.s4desc">Disponible en cualquier momento, sin necesidad de coincidir en horario</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="s4.p5">Cultura</div><div class="pp-desc" data-i18n="s4.p5desc">Los códigos culturales distintos generan malentendidos y fricción</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s5">Tropicalización</div><div class="ps-desc" data-i18n="s4.s5desc">Adapta el tono y las referencias al contexto cultural de cada persona</div></div></div>
+      <div class="prow"><div class="pp-col"><div class="pp" data-i18n="s4.p6">Pérdida de conocimiento</div><div class="pp-desc" data-i18n="s4.p6desc">El conocimiento tácito no queda registrado cuando las personas se van</div></div><div class="pa">→</div><div class="ps"><div class="ps-lbl" data-i18n="shared.solution">Solución</div><div class="ps-txt" data-i18n="s4.s6">Transferencia estructurada</div><div class="ps-desc" data-i18n="s4.s6desc">Convierte el conocimiento conversacional en datos estructurados y reutilizables</div></div></div>
+    </div>
+  </section>
+
+  <!-- ── S5 ARQUITECTURA ── -->
+  <section class="slide bg-l" id="s5">
+    <div class="lbl plain" style="top:28px;left:44px;letter-spacing:.2em" data-i18n="s5.lbl">Arquitectura</div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="width:100%;display:flex;flex-direction:column;padding:60px 72px 48px">
+      <div class="arch-h" style="margin-top:20px" data-i18n="s5.title">Dos tipos de agentes, una misma base de conocimiento.</div>
+      <div class="arch-sub body" data-i18n="s5.sub">Los agentes de check-in capturan lo que el equipo sabe; los de consulta responden a partir de ahí, sobre esa misma base compartida.</div>
+
+      <div class="arch-wrap">
+        <!-- USER -->
+        <div class="a-actor">
+          <div class="a-icon">👤</div>
+          <div class="a-lbl" data-i18n="s5.user">User</div>
+        </div>
+        <!-- Reports arrow -->
+        <div class="a-arr" style="flex-direction:column-reverse">
+          <div class="a-arr-lbl" data-i18n="s5.reports">Reports</div>
+          <div class="a-arr-ln"></div>
+        </div>
+        <!-- Check-in agent -->
+        <div class="a-box">
+          <div class="a-ico">💬</div>
+          <div class="a-ttl" data-i18n-html="s5.checkin">Check-in<br>Agent</div>
+        </div>
+        <!-- Summary dashed -->
+        <div style="display:flex;flex-direction:column;align-items:center;padding:0 14px;gap:3px">
+          <div class="a-dash-lbl" style="font-size:10px;color:var(--gray)" data-i18n="s5.summary">Summary</div>
+          <div style="width:52px;border-top:1.5px dashed var(--gray)"></div>
+        </div>
+        <!-- Writes arrow -->
+        <div class="a-arr">
+          <div class="a-arr-lbl" data-i18n="s5.writes">Writes</div>
+          <div class="a-arr-ln"></div>
+        </div>
+        <!-- Knowledge base -->
+        <div class="a-db">
+          <div class="a-db-lbl">RAG</div>
+          <svg width="52" height="44" viewBox="0 0 52 44">
+            <ellipse cx="26" cy="9" rx="22" ry="7" fill="#1C1C2E" opacity=".15" stroke="#1C1C2E" stroke-width="1.5"/>
+            <rect x="4" y="9" width="44" height="26" fill="#1C1C2E" opacity=".08"/>
+            <ellipse cx="26" cy="35" rx="22" ry="7" fill="none" stroke="#1C1C2E" stroke-width="1.5"/>
+            <line x1="4" y1="9" x2="4" y2="35" stroke="#1C1C2E" stroke-width="1.5"/>
+            <line x1="48" y1="9" x2="48" y2="35" stroke="#1C1C2E" stroke-width="1.5"/>
+            <ellipse cx="26" cy="9" rx="22" ry="7" fill="none" stroke="#1C1C2E" stroke-width="1.5"/>
+          </svg>
+          <div class="a-db-lbl" data-i18n="s5.kb">Knowledge base</div>
+        </div>
+        <!-- Reads arrow -->
+        <div class="a-arr">
+          <div class="a-arr-lbl" style="color:var(--red)" data-i18n="s5.reads">Reads</div>
+          <div class="a-arr-ln r"></div>
+        </div>
+        <!-- Query agent -->
+        <div class="a-box">
+          <div class="a-ico">🔍</div>
+          <div class="a-ttl" data-i18n-html="s5.query">Query<br>Agent</div>
+        </div>
+        <!-- Answer dashed -->
+        <div style="display:flex;flex-direction:column;align-items:center;padding:0 14px;gap:3px">
+          <div class="a-dash-lbl" style="font-size:10px;color:var(--red)" data-i18n="s5.answer">Answer</div>
+          <div style="width:52px;border-top:1.5px dashed var(--red)"></div>
+          <div class="a-dash-lbl" style="font-size:10px;color:var(--gray)" data-i18n="s5.asks">Asks</div>
+        </div>
+        <!-- MANAGER -->
+        <div class="a-actor">
+          <div class="a-icon">👤</div>
+          <div class="a-lbl" data-i18n="s5.manager">Manager</div>
+        </div>
+      </div>
+
+      <div class="arch-legend">
+        <div class="al-item"><div class="al-d dk"></div><span data-i18n="s5.leg1">Check-in · capturar y guardar</span></div>
+        <div class="al-item"><div class="al-d rd"></div><span data-i18n="s5.leg2">Consulta · recuperar y responder</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S6 FASE 1 ── -->
+  <section class="slide bg-l" id="s6">
+    <div class="lbl"><span class="d"></span><span data-i18n="s6.lbl">Fase 1</span></div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div class="s6l" style="padding-top:72px;padding-left:56px;padding-bottom:56px">
+      <div class="d2" style="font-size:clamp(22px,2.8vw,40px);line-height:1.15" data-i18n="s6.title">Una persona, un agente dedicado.</div>
+      <p class="body" style="margin-top:16px" data-i18n="s6.body">Cada persona de la organización tiene su propio agente. Cada día mantiene con ella una conversación breve — en su idioma, a su ritmo — y recoge lo que está viviendo en el trabajo.</p>
+    </div>
+    <div class="s6r" style="padding:80px 56px 56px 16px">
+      <div class="q-sup">Transcripción real · Piloto agosto 2026</div>
+      <div class="ap">
+        <audio src="audios/checkin_eliana_26ago.mp3"></audio>
+        <button class="ap-play">▶</button>
+        <div class="ap-bar"><div class="ap-prog"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t1">Hola, [nombre]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t2">Sí.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t3">¿Desde dónde trabajaste hoy y en qué horario?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t4">Remoto, de cinco a once y media.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t5">Entendido. ¿En qué estuviste trabajando hoy?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t6">Mañana tenemos un deploy, así que estuve acabando unos tickets de última hora sobre la página de tokens y audiencias.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t7">Claro. ¿Y qué tipo de tickets eran? ¿Alguno que te haya tomado más tiempo?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t8">La página de tokens y el [ID interno]; todo funciona correctamente. Solo queda un ticket de audiencias que mañana resolvemos con [un compañero], que hoy no trabaja.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t9">Perfecto. ¿Algo más en lo que hayas estado trabajando hoy?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t10">Sí, terminé la documentación del deploy con el changelog, el resumen de la reunión de [Proyecto A], actualicé tickets de Jira y me reuní con [tres compañeros]. También hablé con [un compañero] de marketing.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t11">Se nota que estuvo intenso. ¿Algo más que quieras reportar?</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t12">No.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t13">Te cuento las novedades del grupo de ayer: se finaliza el DPA para [un cliente]. Se avanzó en la integración de [plataforma de contactos]. Se priorizó una oferta de upgrades. El rediseño de [Proyecto A] incorpora selección de países. Se iniciará el roadmap la próxima semana.</span></div>
+        <div class="tr-line"><span class="tr-who us">Empleada</span><span class="tr-text" data-i18n="s6.t14">Gracias.</span></div>
+        <div class="tr-line"><span class="tr-who ag">Agente</span><span class="tr-text" data-i18n="s6.t15">Gracias. Que te vaya bien mañana.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S7 FASE 2 ── -->
+  <section class="slide bg-l" id="s7">
+    <div class="lbl"><span class="d"></span><span data-i18n="s7.lbl">Fase 2 — Compartir</span></div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div class="s7l" style="padding-top:72px;padding-left:56px;padding-bottom:56px">
+      <div class="d2" style="font-size:clamp(22px,2.8vw,40px);line-height:1.15" data-i18n="s7.title">El conocimiento se comparte.</div>
+      <p class="body" style="margin-top:16px" data-i18n="s7.body">Cada manager tiene también su propio agente. Cuando lo necesita, pregunta en voz alta — en su idioma, desde donde esté — y recibe una respuesta breve construida con lo que el equipo contó.</p>
+    </div>
+    <div class="s7r" style="padding:80px 56px 56px 16px">
+      <div class="q-sup">Transcripción real · Piloto septiembre 2026</div>
+      <div class="ap">
+        <audio src="audios/manager_jorge_14sep.mp3"></audio>
+        <button class="ap-play">▶</button>
+        <div class="ap-bar"><div class="ap-prog"></div></div>
+        <span class="ap-time">0:00</span>
+      </div>
+      <div style="margin-top:4px;display:flex;flex-direction:column;gap:5px">
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text" data-i18n="s7.t1">Hola, [Manager]. Soy María, tu asistente para consultar a tu equipo. ¿Qué te gustaría saber?</span></div>
+        <div class="tr-line"><span class="tr-who us">Manager</span><span class="tr-text" data-i18n="s7.t2">Me gustaría saber qué ha hecho [Empleado] en la última semana de julio.</span></div>
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text" data-i18n="s7.t3">Consulto.</span></div>
+        <div class="tr-line"><span class="tr-who ag">María</span><span class="tr-text" data-i18n="s7.t4">En la última semana de julio, [Empleado] ha estado muy activo. Trabajó en la presentación de [Cliente A], entregando una propuesta final y haciendo seguimiento. Colaboró con [Plataforma A] en proyectos para [Cliente B] y [un cliente nuevo]. Estuvo con [un contacto] de [Empresa A] para la integración de CRM, y trabajó con [Cliente C] y [Cliente D]. Participó en reuniones de ventas y una global sobre [Plataforma B]. Finalizó un chatbot para [Cliente E] y tuvo un weekly con la dirección. ¿Hay algo más que quieras saber?</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S8 EXPERIMENTO JUNIO ── -->
+  <section class="slide bg-l" id="s8">
+    <div class="lbl plain" style="top:28px;left:44px;letter-spacing:.2em;gap:6px" data-i18n="s8.lbl">Experimento &nbsp;·&nbsp; Junio 2026</div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="width:100%;padding-top:24px">
+      <div class="exp-h" style="margin-top:28px" data-i18n="s8.title">De dónde partimos — experimento de junio.</div>
+      <div class="stat-banner">
+        <div class="sb-item"><div class="stat-n">100%</div><div class="sb-sub" data-i18n-html="s8.stat1sub"><strong>trampas rechazadas</strong> — siempre cita la fuente</div></div>
+        <div class="sb-item"><div class="stat-n">95%</div><div class="sb-sub" data-i18n-html="s8.stat2sub"><strong>consultas correctas</strong> — en lenguaje natural</div></div>
+        <div class="sb-item"><div class="stat-n mono">3,1 min</div><div class="sb-sub" data-i18n-html="s8.stat3sub"><strong>de media por check-in</strong> — 131 en junio</div></div>
+      </div>
+      <div class="rg">
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c1t">Relatividad <span class="arr">→</span> Priorización</div></div>
+          <div class="rc-b" data-i18n-html="s8.c1d">Recupera solo lo relevante y lo sintetiza — <strong>reconstruyó una decisión repartida en 3 fechas</strong>.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c2t">Intermitente <span class="arr">→</span> Determinismo</div></div>
+          <div class="rc-b" data-i18n-html="s8.c2d">Respuestas consistentes y trazables — <strong>5 de 5 intentos de invención rechazados</strong>.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c3t">Idiomas <span class="arr">→</span> Multiidioma nativo</div></div>
+          <div class="rc-b" data-i18n-html="s8.c3d">Check-ins en español e inglés — <strong>voces nativas, no traducción</strong>.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c4t">Agendas <span class="arr">→</span> Asincronía</div></div>
+          <div class="rc-b" data-i18n-html="s8.c4d"><strong>131 check-ins asíncronos</strong> sin gastar tiempo en reuniones.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c5t">Cultura <span class="arr">→</span> Tropicalización</div></div>
+          <div class="rc-b" data-i18n-html="s8.c5d">Voz y modismos nativos por región — <strong>argentino, español y más variedades del español</strong>, adaptado a su contexto cultural.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s8.c6t">Pérdida <span class="arr">→</span> Transferencia estructurada</div></div>
+          <div class="rc-b" data-i18n-html="s8.c6d">Convierte en <strong>registros estructurados y trazables</strong> el conocimiento que se perdería, atribuido por persona, empresa y fecha.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S9 PILOTO AGOSTO ── -->
+  <section class="slide bg-l" id="s9">
+    <div class="lbl plain" style="top:28px;left:44px;letter-spacing:.2em;gap:6px" data-i18n="s9.lbl">Piloto &nbsp;·&nbsp; Agosto 2026</div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="width:100%;padding-top:24px">
+      <div class="exp-h" style="margin-top:28px" data-i18n="s9.title">Nueve personas, un mes de check-ins.</div>
+      <div class="stat-banner">
+        <div class="sb-item"><div class="stat-n">96%</div><div class="sb-sub" data-i18n-html="s9.stat1sub"><strong>de cumplimiento</strong> — en las nueve personas</div></div>
+        <div class="sb-item"><div class="stat-n">82%</div><div class="sb-sub" data-i18n-html="s9.stat2sub"><strong>respuestas correctas</strong> — sobre 92 preguntas</div></div>
+        <div class="sb-item"><div class="stat-n mono">169</div><div class="sb-sub" data-i18n-html="s9.stat3sub"><strong>llamadas en agosto</strong> — siete de nueve, cada día</div></div>
+      </div>
+      <div class="rg">
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c1t">Adopción <span class="arr">→</span> Un hábito diario</div></div>
+          <div class="rc-b" data-i18n-html="s9.c1d">Siete de las nueve reportan todos los días — <strong>la racha más larga es de 19 días seguidos</strong>.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c2t">Constancia <span class="arr">→</span> Semana a semana</div></div>
+          <div class="rc-b" data-i18n-html="s9.c2d">El hábito se afianzó durante el mes — <strong>del 97% al 100% en cuatro semanas</strong>.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c3t">Fiabilidad <span class="arr">→</span> Un servicio que aguanta</div></div>
+          <div class="rc-b" data-i18n-html="s9.c3d">De las 169 llamadas de agosto, el <strong>90% funcionó sin ningún fallo</strong> — y ninguna se cortó.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c4t">Resumen <span class="arr">→</span> Se escucha entero</div></div>
+          <div class="rc-b" data-i18n-html="s9.c4d">El <strong>85% escucha el resumen completo</strong> — las novedades les llegan cada mañana.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c5t">Precisión <span class="arr">→</span> Respuestas sólidas</div></div>
+          <div class="rc-b" data-i18n-html="s9.c5d">Probado con 92 preguntas reales — el <strong>82% respondidas correctamente</strong>, y avisa cuando no tiene datos.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n-html="s9.c6t">Siempre responde <span class="arr">→</span> No rellena los huecos</div></div>
+          <div class="rc-b" data-i18n-html="s9.c6d">Toda pregunta recibe respuesta, aunque sea <strong>«no tengo ese dato»</strong>.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S10 LO QUE HEMOS CORREGIDO ── -->
+  <section class="slide bg-l" id="s10">
+    <div class="lbl"><span class="d"></span><span data-i18n="s10.lbl">Lo que hemos corregido</span></div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="width:100%;padding:64px 60px 44px;display:flex;flex-direction:column">
+      <div class="d2" style="margin-top:20px;font-size:clamp(22px,2.8vw,38px)" data-i18n="s10.title">Del experimento al piloto: cinco cosas corregidas.</div>
+      <div class="cg">
+        <div class="cpair">
+          <div class="cb"><div class="clbl" data-i18n="shared.before">Antes</div><div class="ctxt" data-i18n-html="s10.b1b"><strong>Turnos de palabra</strong> · el agente interrumpía y repetía preguntas</div></div>
+          <div class="ca"><div class="clbl a" data-i18n="shared.after">Después</div><div class="ctxt" data-i18n="s10.b1a">Espera y deja terminar a cada persona.</div></div>
+        </div>
+        <div class="cpair">
+          <div class="cb"><div class="clbl" data-i18n="shared.before">Antes</div><div class="ctxt" data-i18n-html="s10.b2b"><strong>Extracción de datos</strong> · el modo de razonamiento triplicaba la espera y perdía datos</div></div>
+          <div class="ca"><div class="clbl a" data-i18n="shared.after">Después</div><div class="ctxt" data-i18n="s10.b2a">Sin ese modo: tres veces más rápido y sin pérdidas.</div></div>
+        </div>
+        <div class="cpair">
+          <div class="cb"><div class="clbl" data-i18n="shared.before">Antes</div><div class="ctxt" data-i18n-html="s10.b3b"><strong>Huso horario</strong> · «ayer» fallaba hasta 16 h para managers fuera de Madrid</div></div>
+          <div class="ca"><div class="clbl a" data-i18n="shared.after">Después</div><div class="ctxt" data-i18n="s10.b3a">Se usa el huso de cada manager.</div></div>
+        </div>
+        <div class="cpair">
+          <div class="cb"><div class="clbl" data-i18n="shared.before">Antes</div><div class="ctxt" data-i18n-html="s10.b4b"><strong>Silencios</strong> · la llamada se cortaba mientras la persona pensaba</div></div>
+          <div class="ca"><div class="clbl a" data-i18n="shared.after">Después</div><div class="ctxt" data-i18n="s10.b4a">Espera mientras piensas.</div></div>
+        </div>
+        <div class="cpair solo">
+          <div class="cb"><div class="clbl" data-i18n="shared.before">Antes</div><div class="ctxt" data-i18n-html="s10.b5b"><strong>Respuestas cortadas</strong> · el agente truncaba las respuestas a medias</div></div>
+          <div class="ca"><div class="clbl a" data-i18n="shared.after">Después</div><div class="ctxt" data-i18n="s10.b5a">Ahora llegan a su final natural.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S11 RIESGOS ── -->
+  <section class="slide bg-l" id="s11">
+    <div class="lbl"><span class="d"></span><span data-i18n="s11.lbl">Riesgos y mitigaciones</span></div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="width:100%;display:flex;flex-direction:column;padding:64px 60px 44px">
+      <div class="rh" data-i18n="s11.title">Cada riesgo tiene su mitigación por diseño.</div>
+      <div class="risg">
+        <div class="rpair">
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r1">Fatiga de check-in</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m1">Breve, asíncrona y en su idioma.</div></div>
+        </div>
+        <div class="rpair">
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r2">Privacidad y datos</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m2">Datos en la UE y consentimiento.</div></div>
+        </div>
+        <div class="rpair">
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r3">Respuestas incorrectas</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m3">Respuestas siempre trazables.</div></div>
+        </div>
+        <div class="rpair">
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r4">Parecer un formulario</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m4">Una conversación real, no un cuestionario leído en voz alta.</div></div>
+        </div>
+        <div class="rpair">
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r5">Atados a un proveedor</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m5">Ningún proveedor es imprescindible: todos se pueden sustituir.</div></div>
+        </div>
+        <div class="rpair">
+          <div class="rc2"><div class="rlbl" data-i18n="shared.risk">Riesgo</div><div class="rtxt" data-i18n="s11.r6">Usabilidad</div></div>
+          <div class="rm"><div class="rlbl m" data-i18n="shared.mitigation">Mitigación</div><div class="rtxt" data-i18n="s11.m6">Llamados y notificaciones por parte del agente.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S APRENDIZAJES ── -->
+  <section class="slide bg-l" id="s-aprendizajes">
+    <div class="lbl"><span class="d"></span><span data-i18n="sa.lbl">Aprendizajes</span></div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="padding:80px;display:flex;flex-direction:column;justify-content:center;width:100%">
+      <div class="q-sup" style="margin-bottom:20px">Pendiente · AW-153</div>
+      <div class="d2" style="margin-bottom:24px" data-i18n="sa.title">Lo que sí o sí hay que hacer.</div>
+      <p class="body" style="max-width:560px" data-i18n="sa.body">Responde la pregunta de JP: ¿qué hemos aprendido con el piloto y qué conclusiones son innegociables para la siguiente fase?</p>
+      <ul class="dl" style="margin-top:28px;max-width:500px">
+        <li data-i18n="sa.li1">¿Qué ha funcionado mejor de lo esperado?</li>
+        <li data-i18n="sa.li2">¿Qué hay que cambiar antes de escalar?</li>
+        <li data-i18n="sa.li3">¿Qué descartamos definitivamente?</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── S12 SIGUIENTES FASES ── -->
+  <section class="slide bg-l" id="s12">
+    <div class="lbl"><span class="d"></span><span data-i18n="s12.lbl">Lo que viene</span></div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="width:100%;display:flex;flex-direction:column;padding:64px 60px 44px">
+      <div class="d2" style="margin-top:20px" data-i18n="s12.title">Tres frentes a la vez.</div>
+      <div class="ng">
+        <div class="nc">
+          <div class="nc-d"></div>
+          <div class="nc-n" data-i18n="s12.n1">01 · Idiomas</div>
+          <div class="nc-t" data-i18n="s12.t1">Más idiomas</div>
+          <div class="nc-desc" data-i18n="s12.d1">Más idiomas, más variantes culturales y un agente para cada una.</div>
+        </div>
+        <div class="nc">
+          <div class="nc-d"></div>
+          <div class="nc-n" data-i18n="s12.n2">02 · Integraciones</div>
+          <div class="nc-t" data-i18n="s12.t2">Más fuentes</div>
+          <div class="nc-desc" data-i18n="s12.d2">CRM, calendarios y WhatsApp, para que el agente de consulta también los use.</div>
+        </div>
+        <div class="nc">
+          <div class="nc-d"></div>
+          <div class="nc-n" data-i18n="s12.n3">03 · Acceso</div>
+          <div class="nc-t" data-i18n="s12.t3">Permisos</div>
+          <div class="nc-desc" data-i18n="s12.d3">El acceso sigue el organigrama: un manager ve su equipo, un director su área.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S EQUIPO ── -->
+  <section class="slide bg-l" id="s-equipo">
+    <div class="lbl"><span class="d"></span><span data-i18n="se.lbl">Equipo</span></div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="padding:80px;display:flex;flex-direction:column;justify-content:center;width:100%">
+      <div class="d2" style="margin-bottom:32px" data-i18n="se.title">Quién hay detrás.</div>
+      <div style="display:flex;gap:24px;align-items:flex-start">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 20px;width:188px;text-align:center">
+          <img src="gabriel.jpg" style="width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin:0 auto 14px">
+          <div style="font-size:14px;font-weight:600;color:var(--navy)">Gabriel Hernán Noguera</div>
+          <div style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);font-weight:700;margin-top:5px" data-i18n="se.role1">Responsable</div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 20px;width:188px;text-align:center;opacity:.45">
+          <div style="width:96px;height:96px;border-radius:50%;background:var(--border);display:block;margin:0 auto 14px"></div>
+          <div style="font-size:14px;font-weight:600;color:var(--navy)">Eduardo Marchuet</div>
+          <div style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);font-weight:700;margin-top:5px">Programme Manager</div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 20px;width:188px;text-align:center;opacity:.45">
+          <div style="width:96px;height:96px;border-radius:50%;background:var(--border);display:block;margin:0 auto 14px"></div>
+          <div style="font-size:14px;font-weight:600;color:var(--navy)">Jose Perez</div>
+          <div style="font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);font-weight:700;margin-top:5px">Executive Sponsor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── S13 QR ── -->
+  <section class="slide bg-w" id="s13">
+    <div class="qr-bg">
+      <svg width="400" height="400" viewBox="0 0 400 400">
+        <polygon points="0,400 0,170 160,400" fill="#C13B2F"/>
+        <polygon points="0,400 0,220 200,400" fill="#C8C7C5" opacity=".4"/>
+      </svg>
+    </div>
+    <div style="position:absolute;top:24px;left:44px">
+      <div style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);font-family:var(--f)" data-i18n="s13.cta">Pruébalo</div>
+      <div class="wave" style="height:28px;margin-top:6px;margin-bottom:0">
+        <span style="height:8px"></span><span style="height:14px"></span><span style="height:20px"></span>
+        <span style="height:12px"></span><span style="height:24px"></span><span style="height:16px"></span>
+        <span style="height:28px"></span><span style="height:14px"></span>
+      </div>
+    </div>
+    <div class="aw">
+      <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
+    </div>
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%">
+      <div class="qr-h" data-i18n="s13.h">Prueba los agentes tú mismo.</div>
+      <div class="qr-sub" data-i18n-html="s13.sub">Habla con <span>Her</span> — apunta con la cámara y empieza.</div>
+      <div class="qr-cards">
+        <div class="qr-card">
+          <div class="qr-img"><img src="qr-burton.png" alt="QR Burton"></div>
+          <div class="qr-name">Burton</div>
+          <div class="qr-role" data-i18n="s13.role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=a6c01ba8-990c-45c6-9c09-48ff7e6f0d91" target="_blank" rel="noopener" data-i18n="s13.link">Link al agente →</a>
+        </div>
+        <div class="qr-card">
+          <div class="qr-img"><img src="qr-pedro.png" alt="QR Pedro"></div>
+          <div class="qr-name">Pedro</div>
+          <div class="qr-role" data-i18n="s13.role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=d4b413b6-7375-497c-9bf5-618bf23396da" target="_blank" rel="noopener" data-i18n="s13.link">Link al agente →</a>
+        </div>
+        <div class="qr-card">
+          <div class="qr-img"><img src="qr-edu.png" alt="QR Edu"></div>
+          <div class="qr-name">Edu</div>
+          <div class="qr-role" data-i18n="s13.role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=3eb4c17b-75cc-46ec-bf0b-c4e9678dd8ea" target="_blank" rel="noopener" data-i18n="s13.link">Link al agente →</a>
+        </div>
+        <div class="qr-card">
+          <div class="qr-img"><img src="qr-jose.png" alt="QR Jose"></div>
+          <div class="qr-name">Jose</div>
+          <div class="qr-role" data-i18n="s13.role">Escanea y habla con el agente</div>
+          <a class="qr-link" href="https://vapi.ai?demo=true&shareKey=b5b45fe7-9949-4429-835e-88c34115f734&assistantId=df1a8034-2912-48dd-b6da-5a40006169d4" target="_blank" rel="noopener" data-i18n="s13.link">Link al agente →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div><!-- /deck -->
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <button id="prev" title="Anterior">‹</button>
+  <span class="cnt" id="cnt">1 / 15</span>
+  <button id="next" title="Siguiente">›</button>
+  <span class="kh">← →</span>
+  <span class="lang-sep"></span>
+  <button id="lang-toggle">ES</button>
+</nav>
+
+<script>
+(function(){
+  const slides = document.querySelectorAll('.slide');
+  const cnt = document.getElementById('cnt');
+  let cur = 0;
+
+  function go(n){
+    slides[cur].classList.remove('active');
+    document.querySelectorAll('.ap audio').forEach(function(a){ a.pause(); });
+    document.querySelectorAll('.ap-play').forEach(function(b){ b.textContent='▶'; b.classList.remove('playing'); });
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    cnt.textContent = (cur+1) + ' / ' + slides.length;
+  }
+
+  document.getElementById('next').onclick = () => go(cur+1);
+  document.getElementById('prev').onclick = () => go(cur-1);
+
+  document.addEventListener('keydown', e => {
+    if(e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') go(cur+1);
+    if(e.key === 'ArrowLeft'  || e.key === 'ArrowUp') go(cur-1);
+  });
+})();
+</script>
+
+<!-- i18n ES/EN -->
+<script>
+const i18n = {
+  es: {
+    'port.title':'Proyecto Her','port.sub':'Realidad percibida accionable',
+    'idx.lbl':'Índice','idx.intro':'Lo que vamos a ver.',
+    'idx.01':'El objetivo','idx.02':'Problemas y soluciones','idx.03':'Arquitectura',
+    'idx.04':'Agente de check-in','idx.05':'Agente de consulta',
+    'idx.06':'Resultados del experimento','idx.07':'Resultados del piloto',
+    'idx.08':'Lo que hemos corregido','idx.09':'Riesgos y mitigaciones',
+    'idx.10':'Aprendizajes','idx.11':'Siguientes fases','idx.12':'Equipo','idx.13':'QR',
+    's3.lbl':'El objetivo',
+    's3.big':'<span class="accent" style="color:var(--red)">Visibilizar y compartir</span><br>el conocimiento de negocio<br>de cada individuo<br>de la organización.',
+    's3.body':'Un experimento para convertir ese conocimiento en inteligencia colectiva — de modo replicable y bajo cumplimiento normativo.',
+    's4.lbl':'El problema','s4.title':'El conocimiento se evapora cada día.',
+    's4.sub':'Muere en reuniones, llamadas y correos…',
+    's4.li1':'El manager no ve qué hizo su equipo sin preguntar.',
+    's4.li2':'El CEO no tiene visión de grupo sin una reunión.',
+    's4.li3':'Hay experiencias que no tienen dónde registrarse y no dejan rastro.',
+    's4.p1':'Relatividad','s4.p1desc':'Cada persona asigna una importancia a cada tema de modo subjetivo',
+    's4.p2':'Intermitente','s4.p2desc':'La falta de constancia provoca fallos y lagunas en el seguimiento',
+    's4.p3':'Idiomas','s4.p3desc':'Las barreras lingüísticas limitan la profundidad de la conversación',
+    's4.p4':'Husos horarios','s4.p4desc':'La diferencia horaria impide la sincronía entre equipos distribuidos',
+    's4.p5':'Cultura','s4.p5desc':'Los códigos culturales distintos generan malentendidos y fricción',
+    's4.p6':'Pérdida de conocimiento','s4.p6desc':'El conocimiento tácito no queda registrado cuando las personas se van',
+    's4.s1':'Priorización','s4.s1desc':'El manager pondera la importancia real de cada tema, no el volumen de voz',
+    's4.s2':'Determinismo','s4.s2desc':'Constancia en el reporte y el seguimiento sistemático de cada caso',
+    's4.s3':'Multiidioma nativo','s4.s3desc':'Conversa en el idioma de cada persona sin perder matices',
+    's4.s4':'Asincronía','s4.s4desc':'Disponible en cualquier momento, sin necesidad de coincidir en horario',
+    's4.s5':'Tropicalización','s4.s5desc':'Adapta el tono y las referencias al contexto cultural de cada persona',
+    's4.s6':'Transferencia estructurada','s4.s6desc':'Convierte el conocimiento conversacional en datos estructurados y reutilizables',
+    's5.lbl':'Arquitectura',
+    's5.title':'Dos tipos de agentes, una misma base de conocimiento.',
+    's5.sub':'Los agentes de check-in capturan lo que el equipo sabe; los de consulta responden a partir de ahí, sobre esa misma base compartida.',
+    's5.user':'User','s5.reports':'Reports','s5.checkin':'Check-in<br>Agent',
+    's5.summary':'Summary','s5.writes':'Writes','s5.kb':'Knowledge base',
+    's5.reads':'Reads','s5.query':'Query<br>Agent','s5.answer':'Answer','s5.asks':'Asks',
+    's5.manager':'Manager',
+    's5.leg1':'Check-in · capturar y guardar','s5.leg2':'Consulta · recuperar y responder',
+    's6.lbl':'Fase 1','s6.title':'Una persona, un agente dedicado.',
+    's6.body':'Cada persona de la organización tiene su propio agente. Cada día mantiene con ella una conversación breve — en su idioma, a su ritmo — y recoge lo que está viviendo en el trabajo.',
+    's6.t1':'Hola, [nombre]. Soy María, tu asistente de check-in. ¿Te parece bien si comenzamos?',
+    's6.t2':'Sí.',
+    's6.t3':'¿Desde dónde trabajaste hoy y en qué horario?',
+    's6.t4':'Remoto, de cinco a once y media.',
+    's6.t5':'Entendido. ¿En qué estuviste trabajando hoy?',
+    's6.t6':'Mañana tenemos un deploy, así que estuve acabando unos tickets de última hora sobre la página de tokens y audiencias.',
+    's6.t7':'Claro. ¿Y qué tipo de tickets eran? ¿Alguno que te haya tomado más tiempo?',
+    's6.t8':'La página de tokens y el [ID interno]; todo funciona correctamente. Solo queda un ticket de audiencias que mañana resolvemos con [un compañero], que hoy no trabaja.',
+    's6.t9':'Perfecto. ¿Algo más en lo que hayas estado trabajando hoy?',
+    's6.t10':'Sí, terminé la documentación del deploy con el changelog, el resumen de la reunión de [Proyecto A], actualicé tickets de Jira y me reuní con [tres compañeros]. También hablé con [un compañero] de marketing.',
+    's6.t11':'Se nota que estuvo intenso. ¿Algo más que quieras reportar?',
+    's6.t12':'No.',
+    's6.t13':'Te cuento las novedades del grupo de ayer: se finaliza el DPA para [un cliente]. Se avanzó en la integración de [plataforma de contactos]. Se priorizó una oferta de upgrades. El rediseño de [Proyecto A] incorpora selección de países. Se iniciará el roadmap la próxima semana.',
+    's6.t14':'Gracias.',
+    's6.t15':'Gracias. Que te vaya bien mañana.',
+    's7.lbl':'Fase 2 — Compartir','s7.title':'El conocimiento se comparte.',
+    's7.body':'Cada manager tiene también su propio agente. Cuando lo necesita, pregunta en voz alta — en su idioma, desde donde esté — y recibe una respuesta breve construida con lo que el equipo contó.',
+    's7.t1':'Hola, [Manager]. Soy María, tu asistente para consultar a tu equipo. ¿Qué te gustaría saber?',
+    's7.t2':'Me gustaría saber qué ha hecho [Empleado] en la última semana de julio.',
+    's7.t3':'Consulto.',
+    's7.t4':'En la última semana de julio, [Empleado] ha estado muy activo. Trabajó en la presentación de [Cliente A], entregando una propuesta final y haciendo seguimiento. Colaboró con [Plataforma A] en proyectos para [Cliente B] y [un cliente nuevo]. Estuvo con [un contacto] de [Empresa A] para la integración de CRM, y trabajó con [Cliente C] y [Cliente D]. Participó en reuniones de ventas y una global sobre [Plataforma B]. Finalizó un chatbot para [Cliente E] y tuvo un weekly con la dirección. ¿Hay algo más que quieras saber?',
+    's8.lbl':'Experimento · Junio 2026',
+    's8.title':'De dónde partimos — experimento de junio.',
+    's8.stat1sub':'<strong>trampas rechazadas</strong> — siempre cita la fuente',
+    's8.stat2sub':'<strong>consultas correctas</strong> — en lenguaje natural',
+    's8.stat3sub':'<strong>de media por check-in</strong> — 131 en junio',
+    's8.c1t':'Relatividad <span class="arr">→</span> Priorización',
+    's8.c1d':'Recupera solo lo relevante y lo sintetiza — <strong>reconstruyó una decisión repartida en 3 fechas</strong>.',
+    's8.c2t':'Intermitente <span class="arr">→</span> Determinismo',
+    's8.c2d':'Respuestas consistentes y trazables — <strong>5 de 5 intentos de invención rechazados</strong>.',
+    's8.c3t':'Idiomas <span class="arr">→</span> Multiidioma nativo',
+    's8.c3d':'Check-ins en español e inglés — <strong>voces nativas, no traducción</strong>.',
+    's8.c4t':'Agendas <span class="arr">→</span> Asincronía',
+    's8.c4d':'<strong>131 check-ins asíncronos</strong> sin gastar tiempo en reuniones.',
+    's8.c5t':'Cultura <span class="arr">→</span> Tropicalización',
+    's8.c5d':'Voz y modismos nativos por región — <strong>argentino, español y más variedades del español</strong>, adaptado a su contexto cultural.',
+    's8.c6t':'Pérdida <span class="arr">→</span> Transferencia estructurada',
+    's8.c6d':'Convierte en <strong>registros estructurados y trazables</strong> el conocimiento que se perdería, atribuido por persona, empresa y fecha.',
+    's9.lbl':'Piloto · Agosto 2026',
+    's9.title':'Nueve personas, un mes de check-ins.',
+    's9.stat1sub':'<strong>de cumplimiento</strong> — en las nueve personas',
+    's9.stat2sub':'<strong>respuestas correctas</strong> — sobre 92 preguntas',
+    's9.stat3sub':'<strong>llamadas en agosto</strong> — siete de nueve, cada día',
+    's9.c1t':'Adopción <span class="arr">→</span> Un hábito diario',
+    's9.c1d':'Siete de las nueve reportan todos los días — <strong>la racha más larga es de 19 días seguidos</strong>.',
+    's9.c2t':'Constancia <span class="arr">→</span> Semana a semana',
+    's9.c2d':'El hábito se afianzó durante el mes — <strong>del 97% al 100% en cuatro semanas</strong>.',
+    's9.c3t':'Fiabilidad <span class="arr">→</span> Un servicio que aguanta',
+    's9.c3d':'De las 169 llamadas de agosto, el <strong>90% funcionó sin ningún fallo</strong> — y ninguna se cortó.',
+    's9.c4t':'Resumen <span class="arr">→</span> Se escucha entero',
+    's9.c4d':'El <strong>85% escucha el resumen completo</strong> — las novedades les llegan cada mañana.',
+    's9.c5t':'Precisión <span class="arr">→</span> Respuestas sólidas',
+    's9.c5d':'Probado con 92 preguntas reales — el <strong>82% respondidas correctamente</strong>, y avisa cuando no tiene datos.',
+    's9.c6t':'Siempre responde <span class="arr">→</span> No rellena los huecos',
+    's9.c6d':'Toda pregunta recibe respuesta, aunque sea <strong>«no tengo ese dato»</strong>.',
+    's10.lbl':'Lo que hemos corregido',
+    's10.title':'Del experimento al piloto: cinco cosas corregidas.',
+    's10.b1b':'<strong>Turnos de palabra</strong> · el agente interrumpía y repetía preguntas',
+    's10.b1a':'Espera y deja terminar a cada persona.',
+    's10.b2b':'<strong>Extracción de datos</strong> · el modo de razonamiento triplicaba la espera y perdía datos',
+    's10.b2a':'Sin ese modo: tres veces más rápido y sin pérdidas.',
+    's10.b3b':'<strong>Huso horario</strong> · «ayer» fallaba hasta 16 h para managers fuera de Madrid',
+    's10.b3a':'Se usa el huso de cada manager.',
+    's10.b4b':'<strong>Silencios</strong> · la llamada se cortaba mientras la persona pensaba',
+    's10.b4a':'Espera mientras piensas.',
+    's10.b5b':'<strong>Respuestas cortadas</strong> · el agente truncaba las respuestas a medias',
+    's10.b5a':'Ahora llegan a su final natural.',
+    's11.lbl':'Riesgos y mitigaciones',
+    's11.title':'Cada riesgo tiene su mitigación por diseño.',
+    's11.r1':'Fatiga de check-in','s11.m1':'Breve, asíncrona y en su idioma.',
+    's11.r2':'Privacidad y datos','s11.m2':'Datos en la UE y consentimiento.',
+    's11.r3':'Respuestas incorrectas','s11.m3':'Respuestas siempre trazables.',
+    's11.r4':'Parecer un formulario','s11.m4':'Una conversación real, no un cuestionario leído en voz alta.',
+    's11.r5':'Atados a un proveedor','s11.m5':'Ningún proveedor es imprescindible: todos se pueden sustituir.',
+    's11.r6':'Usabilidad','s11.m6':'Llamados y notificaciones por parte del agente.',
+    'sa.lbl':'Aprendizajes','sa.title':'Lo que sí o sí hay que hacer.',
+    'sa.body':'Responde la pregunta de JP: ¿qué hemos aprendido con el piloto y qué conclusiones son innegociables para la siguiente fase?',
+    'sa.li1':'¿Qué ha funcionado mejor de lo esperado?',
+    'sa.li2':'¿Qué hay que cambiar antes de escalar?',
+    'sa.li3':'¿Qué descartamos definitivamente?',
+    's12.lbl':'Lo que viene','s12.title':'Tres frentes a la vez.',
+    's12.n1':'01 · Idiomas','s12.t1':'Más idiomas',
+    's12.d1':'Más idiomas, más variantes culturales y un agente para cada una.',
+    's12.n2':'02 · Integraciones','s12.t2':'Más fuentes',
+    's12.d2':'CRM, calendarios y WhatsApp, para que el agente de consulta también los use.',
+    's12.n3':'03 · Acceso','s12.t3':'Permisos',
+    's12.d3':'El acceso sigue el organigrama: un manager ve su equipo, un director su área.',
+    'se.lbl':'Equipo','se.title':'Quién hay detrás.','se.role1':'Responsable',
+    's13.cta':'Pruébalo','s13.h':'Prueba los agentes tú mismo.',
+    's13.sub':'Habla con <span>Her</span> — apunta con la cámara y empieza.',
+    's13.role':'Escanea y habla con el agente',
+    's13.link':'Link al agente →',
+    'shared.solution':'Solución','shared.before':'Antes','shared.after':'Después',
+    'shared.risk':'Riesgo','shared.mitigation':'Mitigación'
+  },
+  en: {
+    'port.title':'Project Her','port.sub':'Actionable perceived reality',
+    'idx.lbl':'Index','idx.intro':"What we're covering.",
+    'idx.01':'The objective','idx.02':'Problems and solutions','idx.03':'Architecture',
+    'idx.04':'Check-in agent','idx.05':'Query agent',
+    'idx.06':'Experiment results','idx.07':'Pilot results',
+    'idx.08':'What we fixed','idx.09':'Risks and mitigations',
+    'idx.10':'Learnings','idx.11':'Next phases','idx.12':'Team','idx.13':'QR',
+    's3.lbl':'The objective',
+    's3.big':'<span class="accent" style="color:var(--red)">Surface and share</span><br>the business knowledge<br>of each individual<br>in the organisation.',
+    's3.body':'An experiment to turn that knowledge into collective intelligence — in a replicable, compliant way.',
+    's4.lbl':'The problem','s4.title':'Knowledge evaporates every day.',
+    's4.sub':'Lost in meetings, calls and emails…',
+    's4.li1':"Managers can't see what their team did without asking.",
+    's4.li2':'CEOs have no group-wide view without a meeting.',
+    's4.li3':'Experiences with nowhere to be recorded leave no trace.',
+    's4.p1':'Subjectivity','s4.p1desc':'Each person assigns their own level of importance to every topic',
+    's4.p2':'Inconsistency','s4.p2desc':'Lack of consistency causes gaps and failures in follow-through',
+    's4.p3':'Languages','s4.p3desc':'Language barriers limit the depth of the conversation',
+    's4.p4':'Time zones','s4.p4desc':'Time differences prevent synchrony between distributed teams',
+    's4.p5':'Culture','s4.p5desc':'Different cultural codes create misunderstandings and friction',
+    's4.p6':'Knowledge loss','s4.p6desc':'Tacit knowledge is not documented when people leave',
+    's4.s1':'Prioritisation','s4.s1desc':'The manager weighs the real importance of each topic, not speaking volume',
+    's4.s2':'Determinism','s4.s2desc':'Consistent reporting and systematic follow-up on every case',
+    's4.s3':'Native multilingual','s4.s3desc':'Speaks each person\'s language without losing nuance',
+    's4.s4':'Asynchrony','s4.s4desc':'Available at any time, no need to coincide in schedule',
+    's4.s5':'Localisation','s4.s5desc':'Adapts tone and references to each person\'s cultural context',
+    's4.s6':'Structured transfer','s4.s6desc':'Converts conversational knowledge into structured, reusable data',
+    's5.lbl':'Architecture',
+    's5.title':'Two agent types, one shared knowledge base.',
+    's5.sub':'Check-in agents capture what the team knows; query agents answer from that same shared base.',
+    's5.user':'User','s5.reports':'Reports','s5.checkin':'Check-in<br>Agent',
+    's5.summary':'Summary','s5.writes':'Writes','s5.kb':'Knowledge base',
+    's5.reads':'Reads','s5.query':'Query<br>Agent','s5.answer':'Answer','s5.asks':'Asks',
+    's5.manager':'Manager',
+    's5.leg1':'Check-in · capture and store','s5.leg2':'Query · retrieve and respond',
+    's6.lbl':'Phase 1','s6.title':'One person, one dedicated agent.',
+    's6.body':"Every person in the organisation has their own agent. Every day it holds a brief conversation with them — in their language, at their pace — capturing what they're experiencing at work.",
+    's6.t1':"Hi, [name]. I'm María, your check-in assistant. Shall we get started?",
+    's6.t2':'Yes.',
+    's6.t3':'Where did you work today and what were your hours?',
+    's6.t4':'Remote, from five to eleven-thirty.',
+    's6.t5':'Got it. What were you working on today?',
+    's6.t6':'We have a deploy tomorrow, so I was finishing some last-minute tickets on the tokens and audiences page.',
+    's6.t7':'Sure. What kind of tickets were they? Any that took longer than expected?',
+    's6.t8':"The tokens page and the [internal ID]; everything is working correctly. There's one audiences ticket left that we'll resolve tomorrow with [a colleague], who isn't working today.",
+    's6.t9':'Got it. Anything else you were working on today?',
+    's6.t10':'Yes, I finished the deploy documentation with the changelog, the summary of the [Project A] meeting, updated Jira tickets and had a meeting with [three colleagues]. I also spoke with [a colleague] from marketing.',
+    's6.t11':"Sounds like a busy one. Anything else you'd like to report?",
+    's6.t12':'No.',
+    's6.t13':"Here are yesterday's group updates: the DPA for [a client] is being finalised. Progress on the [contact platform] integration. An upgrades offer was prioritised. The [Project A] redesign now includes country selection. The roadmap will kick off next week.",
+    's6.t14':'Thanks.',
+    's6.t15':'Thanks. Have a good day tomorrow.',
+    's7.lbl':'Phase 2 — Share','s7.title':'Knowledge gets shared.',
+    's7.body':"Every manager also has their own agent. When they need it, they ask out loud — in their language, from wherever they are — and get a brief answer built from what the team reported.",
+    's7.t1':"Hi, [Manager]. I'm María, your assistant for querying your team. What would you like to know?",
+    's7.t2':'I\'d like to know what [Employee] has been doing in the last week of July.',
+    's7.t3':'Let me check.',
+    's7.t4':'In the last week of July, [Employee] has been very active. He worked on the presentation for [Client A], delivering a final proposal and following up. He collaborated with [Platform A] on projects for [Client B] and [a new client]. He worked with [a contact] from [Company A] on CRM integration, and with [Client C] and [Client D]. He attended sales meetings and a global one about [Platform B]. He finished a chatbot for [Client E] and had a weekly with management. Is there anything else you\'d like to know?',
+    's8.lbl':'Experiment · June 2026',
+    's8.title':'Where we started — June experiment.',
+    's8.stat1sub':'<strong>traps rejected</strong> — always cites the source',
+    's8.stat2sub':'<strong>correct queries</strong> — in natural language',
+    's8.stat3sub':'<strong>average per check-in</strong> — 131 in June',
+    's8.c1t':'Subjectivity <span class="arr">→</span> Prioritisation',
+    's8.c1d':'Retrieves only what\'s relevant and synthesises it — <strong>reconstructed a decision spread across 3 dates</strong>.',
+    's8.c2t':'Inconsistency <span class="arr">→</span> Determinism',
+    's8.c2d':'Consistent, traceable answers — <strong>5 of 5 hallucination attempts rejected</strong>.',
+    's8.c3t':'Languages <span class="arr">→</span> Native multilingual',
+    's8.c3d':'Check-ins in Spanish and English — <strong>native voices, not translation</strong>.',
+    's8.c4t':'Schedules <span class="arr">→</span> Asynchrony',
+    's8.c4d':'<strong>131 asynchronous check-ins</strong> without spending time in meetings.',
+    's8.c5t':'Culture <span class="arr">→</span> Localisation',
+    's8.c5d':'Native voice and idioms by region — <strong>Argentine, Spanish and more Spanish varieties</strong>, adapted to cultural context.',
+    's8.c6t':'Loss <span class="arr">→</span> Structured transfer',
+    's8.c6d':'Converts into <strong>structured, traceable records</strong> the knowledge that would otherwise be lost, attributed by person, company and date.',
+    's9.lbl':'Pilot · August 2026',
+    's9.title':'Nine people, one month of check-ins.',
+    's9.stat1sub':'<strong>completion rate</strong> — across all nine people',
+    's9.stat2sub':'<strong>correct answers</strong> — across 92 questions',
+    's9.stat3sub':'<strong>calls in August</strong> — seven of nine, every day',
+    's9.c1t':'Adoption <span class="arr">→</span> A daily habit',
+    's9.c1d':'Seven of the nine report every day — <strong>the longest streak is 19 consecutive days</strong>.',
+    's9.c2t':'Consistency <span class="arr">→</span> Week after week',
+    's9.c2d':'The habit solidified over the month — <strong>from 97% to 100% in four weeks</strong>.',
+    's9.c3t':'Reliability <span class="arr">→</span> A service that holds up',
+    's9.c3d':'Of the 169 August calls, <strong>90% ran without any failure</strong> — and none dropped.',
+    's9.c4t':'Summary <span class="arr">→</span> Listened to in full',
+    's9.c4d':'<strong>85% listen to the full summary</strong> — the updates reach them every morning.',
+    's9.c5t':'Accuracy <span class="arr">→</span> Solid answers',
+    's9.c5d':'Tested with 92 real questions — <strong>82% answered correctly</strong>, and it flags when it has no data.',
+    's9.c6t':'Always answers <span class="arr">→</span> Never fills gaps',
+    's9.c6d':'Every question gets an answer, even if it\'s <strong>"I don\'t have that data"</strong>.',
+    's10.lbl':'What we fixed',
+    's10.title':'From experiment to pilot: five things fixed.',
+    's10.b1b':'<strong>Turn-taking</strong> · the agent interrupted and repeated questions',
+    's10.b1a':'Waits and lets each person finish.',
+    's10.b2b':'<strong>Data extraction</strong> · reasoning mode tripled wait times and lost data',
+    's10.b2a':'Without that mode: three times faster with no losses.',
+    's10.b3b':'<strong>Time zone</strong> · "yesterday" failed by up to 16 h for managers outside Madrid',
+    's10.b3a':"Each manager's own time zone is used.",
+    's10.b4b':'<strong>Silences</strong> · the call dropped while the person was thinking',
+    's10.b4a':'Waits while you think.',
+    's10.b5b':'<strong>Truncated responses</strong> · the agent cut off answers mid-sentence',
+    's10.b5a':'Now they reach their natural end.',
+    's11.lbl':'Risks and mitigations',
+    's11.title':'Every risk has its mitigation by design.',
+    's11.r1':'Check-in fatigue','s11.m1':'Brief, asynchronous and in their language.',
+    's11.r2':'Privacy and data','s11.m2':'Data in the EU with consent.',
+    's11.r3':'Incorrect answers','s11.m3':'Answers are always traceable.',
+    's11.r4':'Feeling like a form','s11.m4':'A real conversation, not a questionnaire read aloud.',
+    's11.r5':'Vendor lock-in','s11.m5':'No vendor is indispensable: all can be replaced.',
+    's11.r6':'Usability','s11.m6':'Agent-initiated calls and notifications.',
+    'sa.lbl':'Learnings','sa.title':'What must be done, no matter what.',
+    'sa.body':"Answers JP's question: what have we learnt from the pilot and what conclusions are non-negotiable for the next phase?",
+    'sa.li1':'What worked better than expected?',
+    'sa.li2':'What needs to change before we scale?',
+    'sa.li3':'What are we ruling out for good?',
+    's12.lbl':"What's next",'s12.title':'Three fronts at once.',
+    's12.n1':'01 · Languages','s12.t1':'More languages',
+    's12.d1':'More languages, more cultural variants and a dedicated agent for each.',
+    's12.n2':'02 · Integrations','s12.t2':'More sources',
+    's12.d2':'CRM, calendars and WhatsApp, so the query agent can use them too.',
+    's12.n3':'03 · Access','s12.t3':'Permissions',
+    's12.d3':'Access follows the org chart: a manager sees their team, a director their area.',
+    'se.lbl':'Team','se.title':'The people behind it.','se.role1':'Owner',
+    's13.cta':'Try it','s13.h':'Try the agents yourself.',
+    's13.sub':'Talk to <span>Her</span> — point your camera and start.',
+    's13.role':'Scan and talk to the agent',
+    's13.link':'Agent link →',
+    'shared.solution':'Solution','shared.before':'Before','shared.after':'After',
+    'shared.risk':'Risk','shared.mitigation':'Mitigation'
+  }
+};
+(function(){
+  var STORAGE_KEY='her_lang', URL_PARAM='lang';
+  function getInitialLang(){
+    var url=new URLSearchParams(window.location.search).get(URL_PARAM);
+    if(url==='en'||url==='es') return url;
+    var stored=localStorage.getItem(STORAGE_KEY);
+    if(stored) return stored;
+    return navigator.language.startsWith('en')?'en':'es';
+  }
+  function applyLang(lang){
+    var dict=i18n[lang];
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v=dict[el.dataset.i18n];
+      if(v!==undefined) el.textContent=v;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var v=dict[el.dataset.i18nHtml];
+      if(v!==undefined) el.innerHTML=v;
+    });
+    var btn=document.getElementById('lang-toggle');
+    btn.textContent=lang.toUpperCase();
+    btn.classList.toggle('en',lang==='en');
+    localStorage.setItem(STORAGE_KEY,lang);
+    history.replaceState(null,'',lang==='es'?window.location.pathname:'?lang=en');
+  }
+  var currentLang=getInitialLang();
+  document.getElementById('lang-toggle').addEventListener('click',function(){
+    currentLang=currentLang==='es'?'en':'es';
+    applyLang(currentLang);
+  });
+  if(currentLang!=='es') applyLang(currentLang);
+})();
+</script>
+
+<!-- Modo Review y Feedback Editorial/Diseño -->
+<script>
+  window.WEB_REVIEW_CONFIG = {
+    projectName: 'her-v5',
+    webhookUrl: 'https://script.google.com/macros/s/AKfycbyKu1mq0uCVFNnUTbaVQhgmhQ9QM1EQ49Smyjcecrv8v0ay_FEgu9nio5tToahhsZnA/exec',
+    brandColor: '#C13B2F'
+  };
+</script>
+<script src="web-review-mode.js"></script>
+<script>
+(function(){
+  function fmt(s){return Math.floor(s/60)+':'+(Math.floor(s%60)<10?'0':'')+Math.floor(s%60);}
+  document.querySelectorAll('.ap').forEach(function(ap){
+    var audio=ap.querySelector('audio');
+    var btn=ap.querySelector('.ap-play');
+    var prog=ap.querySelector('.ap-prog');
+    var time=ap.querySelector('.ap-time');
+    var bar=ap.querySelector('.ap-bar');
+    btn.addEventListener('click',function(){
+      if(audio.paused){
+        document.querySelectorAll('.ap audio').forEach(function(a){if(a!==audio)a.pause();});
+        document.querySelectorAll('.ap-play').forEach(function(b){if(b!==btn){b.textContent='▶';b.classList.remove('playing');}});
+        audio.play();btn.textContent='⏸';btn.classList.add('playing');
+      }else{audio.pause();btn.textContent='▶';btn.classList.remove('playing');}
+    });
+    audio.addEventListener('timeupdate',function(){
+      if(audio.duration)prog.style.width=(audio.currentTime/audio.duration*100)+'%';
+      time.textContent=fmt(audio.currentTime);
+    });
+    audio.addEventListener('ended',function(){
+      btn.textContent='▶';btn.classList.remove('playing');
+      prog.style.width='0%';time.textContent='0:00';audio.currentTime=0;
+    });
+    bar.addEventListener('click',function(e){
+      var r=bar.getBoundingClientRect();
+      if(audio.duration)audio.currentTime=(e.clientX-r.left)/r.width*audio.duration;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
