@@ -692,20 +692,20 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
       <div class="d2" style="margin-bottom:20px;font-size:clamp(22px,2.8vw,40px)" data-i18n="sa.title">Lo que el piloto dejó claro.</div>
       <div class="rg" style="grid-template-columns:1fr 1fr;flex:none">
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n="sa.li1t">Adopción</div></div>
-          <div class="rc-b" data-i18n-html="sa.li\1">Más del <strong>90 % de cumplimiento diario</strong>. El check-in de voz se integró como rutina sin fricción.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n="sa.li1t">Estabilidad</div></div>
+          <div class="rc-b" data-i18n-html="sa.li1">El sistema alcanza el <strong>80 % de estabilidad técnica</strong>, pero la tasa de check-ins completados es del 100 %. La rutina se sostuvo independientemente de los cortes.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">!</div><div class="rc-t" data-i18n="sa.li2t">Canal de voz</div></div>
-          <div class="rc-b" data-i18n-html="sa.li\1">Estabilidad al <strong>80 %</strong> — cortes por conexión del usuario. Hay que resolver el canal antes de escalar, no el agente.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n="sa.li2t">IA Conversacional</div></div>
+          <div class="rc-b" data-i18n-html="sa.li2">La experiencia conversacional está <strong>madurando</strong>. El sistema permite pruebas A/B con distintos frameworks y proveedores para optimizar la interacción.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">!</div><div class="rc-t" data-i18n="sa.li3t">Gobernanza</div></div>
-          <div class="rc-b" data-i18n-html="sa.li\1">Todos los managers ven todos los datos <strong>sin filtro jerárquico</strong>. Innegociable: control de acceso por organigrama antes de producción.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n="sa.li3t">Gobernanza</div></div>
+          <div class="rc-b" data-i18n-html="sa.li3">El acceso universal <strong>no es necesario ni recomendable</strong>. La siguiente fase implementará jerarquía por equipos: cada manager accede solo a su capa.</div>
         </div>
         <div class="rc">
-          <div class="rc-h"><div class="rc-ck">!</div><div class="rc-t" data-i18n="sa.li4t">Capacidades</div></div>
-          <div class="rc-b" data-i18n-html="sa.li\1">El agente <strong>no compara ni agrega</strong> — responde sobre una persona a la vez. Necesita síntesis para ser útil a directores.</div>
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n="sa.li4t">Capacidades</div></div>
+          <div class="rc-b" data-i18n-html="sa.li4">Las herramientas de consulta son <strong>extensibles</strong>. Las comparaciones complejas entre personas requieren evolucionar el RAG y están previstas como evolutivo.</div>
         </div>
       </div>
     </div>
@@ -718,8 +718,8 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
       <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
     </div>
     <div style="width:100%;display:flex;flex-direction:column;padding:64px 60px 44px">
-      <div class="d2" style="margin-top:20px" data-i18n="s12.title">Tres frentes a la vez.</div>
-      <div class="ng">
+      <div class="d2" style="margin-top:20px" data-i18n="s12.title">Roadmap.</div>
+      <div class="ng" style="grid-template-columns:1fr 1fr 1fr 1fr">
         <div class="nc">
           <div class="nc-d"></div>
           <div class="nc-n" data-i18n="s12.n1">01 · Idiomas</div>
@@ -737,6 +737,12 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
           <div class="nc-n" data-i18n="s12.n3">03 · Acceso</div>
           <div class="nc-t" data-i18n="s12.t3">Permisos</div>
           <div class="nc-desc" data-i18n="s12.d3">El acceso sigue el organigrama: un manager ve su equipo, un director su área.</div>
+        </div>
+        <div class="nc">
+          <div class="nc-d"></div>
+          <div class="nc-n" data-i18n="s12.n4">04 · Canal</div>
+          <div class="nc-t" data-i18n="s12.t4">Canal multimodal</div>
+          <div class="nc-desc" data-i18n="s12.d4">Llamadas inbound y outbound, email y otros canales, para que el agente llegue donde está la persona.</div>
         </div>
       </div>
     </div>
@@ -976,17 +982,18 @@ const i18n = {
     's11.r5':'Atados a un proveedor','s11.m5':'Ningún proveedor es imprescindible: todos se pueden sustituir.',
     's11.r6':'Usabilidad','s11.m6':'Llamados y notificaciones por parte del agente.',
     'sa.lbl':'Aprendizajes','sa.title':'Lo que el piloto dejó claro.',
-    'sa.li1t':'Adopción','sa.li1':'Más del <strong>90 % de cumplimiento diario</strong>. El check-in de voz se integró como rutina sin fricción.',
-    'sa.li2t':'Canal de voz','sa.li2':'Estabilidad al <strong>80 %</strong> — cortes por conexión del usuario. Hay que resolver el canal antes de escalar, no el agente.',
-    'sa.li3t':'Gobernanza','sa.li3':'Todos los managers ven todos los datos <strong>sin filtro jerárquico</strong>. Innegociable: control de acceso por organigrama antes de producción.',
-    'sa.li4t':'Capacidades','sa.li4':'El agente <strong>no compara ni agrega</strong> — responde sobre una persona a la vez. Necesita síntesis para ser útil a directores.',
-    's12.lbl':'Lo que viene','s12.title':'Tres frentes a la vez.',
+    'sa.li1t':'Estabilidad','sa.li1':'El sistema alcanza el <strong>80 % de estabilidad técnica</strong>, pero la tasa de check-ins completados es del 100 %. La rutina se sostuvo independientemente de los cortes.',
+    'sa.li2t':'IA Conversacional','sa.li2':'La experiencia conversacional está <strong>madurando</strong>. El sistema permite pruebas A/B con distintos frameworks y proveedores para optimizar la interacción.',
+    'sa.li3t':'Gobernanza','sa.li3':'El acceso universal <strong>no es necesario ni recomendable</strong>. La siguiente fase implementará jerarquía por equipos: cada manager accede solo a su capa.',
+    'sa.li4t':'Capacidades','sa.li4':'Las herramientas de consulta son <strong>extensibles</strong>. Las comparaciones complejas entre personas requieren evolucionar el RAG y están previstas como evolutivo.',
+    's12.lbl':'Lo que viene','s12.title':'Roadmap.',
     's12.n1':'01 · Idiomas','s12.t1':'Más idiomas',
     's12.d1':'Más idiomas, más variantes culturales y un agente para cada una.',
     's12.n2':'02 · Integraciones','s12.t2':'Más fuentes',
     's12.d2':'CRM, calendarios y WhatsApp, para que el agente de consulta también los use.',
     's12.n3':'03 · Acceso','s12.t3':'Permisos',
     's12.d3':'El acceso sigue el organigrama: un manager ve su equipo, un director su área.',
+    's12.n4':'04 · Canal','s12.t4':'Canal multimodal','s12.d4':'Llamadas inbound y outbound, email y otros canales, para que el agente llegue donde está la persona.',
     'se.lbl':'Equipo','se.title':'Quién hay detrás.','se.role1':'Responsable',
     's13.cta':'Pruébalo','s13.h':'Prueba los agentes tú mismo.',
     's13.sub':'Habla con <span>Her</span> — apunta con la cámara y empieza.',
@@ -1109,17 +1116,18 @@ const i18n = {
     's11.r5':'Vendor lock-in','s11.m5':'No vendor is indispensable: all can be replaced.',
     's11.r6':'Usability','s11.m6':'Agent-initiated calls and notifications.',
     'sa.lbl':'Learnings','sa.title':'What the pilot made clear.',
-    'sa.li1t':'Adoption','sa.li1':'Over <strong>90% daily compliance</strong>. The voice check-in became a frictionless routine.',
-    'sa.li2t':'Voice channel','sa.li2':'Stability at <strong>80%</strong> — drops due to user connection quality. The channel needs fixing before scaling, not the agent.',
-    'sa.li3t':'Governance','sa.li3':'All managers see all data <strong>with no hierarchy filter</strong>. Non-negotiable: org-chart-based access control before production.',
-    'sa.li4t':'Capabilities','sa.li4':'The agent <strong>does not compare or aggregate</strong> — one person at a time. Synthesis capability needed to be useful for directors.',
-    's12.lbl':"What's next",'s12.title':'Three fronts at once.',
+    'sa.li1t':'Stability','sa.li1':'The system reaches <strong>80% technical stability</strong>, but check-in completion rate is 100%. The routine held regardless of drops.',
+    'sa.li2t':'Conversational AI','sa.li2':'The conversational experience is <strong>maturing</strong>. The system allows A/B testing with different frameworks and providers to optimise interaction.',
+    'sa.li3t':'Governance','sa.li3':'Universal access is <strong>neither necessary nor advisable</strong>. The next phase will implement team-based hierarchy: each manager sees only their layer.',
+    'sa.li4t':'Capabilities','sa.li4':'Query tools are <strong>extensible</strong>. Complex cross-person comparisons require evolving the RAG and are planned as a future iteration.',
+    's12.lbl':"What's next",'s12.title':'Roadmap.',
     's12.n1':'01 · Languages','s12.t1':'More languages',
     's12.d1':'More languages, more cultural variants and a dedicated agent for each.',
     's12.n2':'02 · Integrations','s12.t2':'More sources',
     's12.d2':'CRM, calendars and WhatsApp, so the query agent can use them too.',
     's12.n3':'03 · Access','s12.t3':'Permissions',
     's12.d3':'Access follows the org chart: a manager sees their team, a director their area.',
+    's12.n4':'04 · Channel','s12.t4':'Multimodal channel','s12.d4':'Inbound and outbound calls, email and other channels, so the agent reaches people wherever they are.',
     'se.lbl':'Team','se.title':'The people behind it.','se.role1':'Owner',
     's13.cta':'Try it','s13.h':'Try the agents yourself.',
     's13.sub':'Talk to <span>Her</span> — point your camera and start.',
