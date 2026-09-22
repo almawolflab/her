@@ -687,15 +687,27 @@ html,body{width:100%;height:100%;font-family:var(--f);background:#111;overflow:h
     <div class="aw">
       <img src="logo-almawolf-lab.svg" alt="AlmaWolf LAB">
     </div>
-    <div style="padding:80px;display:flex;flex-direction:column;justify-content:center;width:100%">
-      <div class="q-sup" style="margin-bottom:20px">Piloto agosto 2026</div>
-      <div class="d2" style="margin-bottom:24px" data-i18n="sa.title">Lo que el piloto dejó claro.</div>
-      <ul class="dl" style="margin-top:0;max-width:560px">
-        <li data-i18n="sa.li1">La adopción superó el objetivo: más del 90 % de cumplimiento diario. El check-in de voz se integró como rutina sin fricción.</li>
-        <li data-i18n="sa.li2">La estabilidad del canal de voz llega al 80 % — cortes e intermitencias por conexión del usuario. Hay que resolver el canal antes de escalar, no el agente.</li>
-        <li data-i18n="sa.li3">La gobernanza es innegociable: todos los managers ven todos los datos sin filtro jerárquico. Esto no puede llegar a producción sin control de acceso por organigrama.</li>
-        <li data-i18n="sa.li4">El agente no compara ni agrega — responde sobre una persona a la vez. Necesita capacidad de síntesis para ser útil a directores.</li>
-      </ul>
+    <div style="padding:56px 80px;display:flex;flex-direction:column;justify-content:center;width:100%;height:100%;box-sizing:border-box">
+      <div class="q-sup" style="margin-bottom:16px">Piloto agosto 2026</div>
+      <div class="d2" style="margin-bottom:20px;font-size:clamp(22px,2.8vw,40px)" data-i18n="sa.title">Lo que el piloto dejó claro.</div>
+      <div class="rg" style="grid-template-columns:1fr 1fr;flex:none">
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">✓</div><div class="rc-t" data-i18n="sa.li1t">Adopción</div></div>
+          <div class="rc-b" data-i18n-html="sa.li\1">Más del <strong>90 % de cumplimiento diario</strong>. El check-in de voz se integró como rutina sin fricción.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">!</div><div class="rc-t" data-i18n="sa.li2t">Canal de voz</div></div>
+          <div class="rc-b" data-i18n-html="sa.li\1">Estabilidad al <strong>80 %</strong> — cortes por conexión del usuario. Hay que resolver el canal antes de escalar, no el agente.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">!</div><div class="rc-t" data-i18n="sa.li3t">Gobernanza</div></div>
+          <div class="rc-b" data-i18n-html="sa.li\1">Todos los managers ven todos los datos <strong>sin filtro jerárquico</strong>. Innegociable: control de acceso por organigrama antes de producción.</div>
+        </div>
+        <div class="rc">
+          <div class="rc-h"><div class="rc-ck">!</div><div class="rc-t" data-i18n="sa.li4t">Capacidades</div></div>
+          <div class="rc-b" data-i18n-html="sa.li\1">El agente <strong>no compara ni agrega</strong> — responde sobre una persona a la vez. Necesita síntesis para ser útil a directores.</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -964,10 +976,10 @@ const i18n = {
     's11.r5':'Atados a un proveedor','s11.m5':'Ningún proveedor es imprescindible: todos se pueden sustituir.',
     's11.r6':'Usabilidad','s11.m6':'Llamados y notificaciones por parte del agente.',
     'sa.lbl':'Aprendizajes','sa.title':'Lo que el piloto dejó claro.',
-    'sa.li1':'La adopción superó el objetivo: más del 90 % de cumplimiento diario. El check-in de voz se integró como rutina sin fricción.',
-    'sa.li2':'La estabilidad del canal de voz llega al 80 % — cortes e intermitencias por conexión del usuario. Hay que resolver el canal antes de escalar, no el agente.',
-    'sa.li3':'La gobernanza es innegociable: todos los managers ven todos los datos sin filtro jerárquico. Esto no puede llegar a producción sin control de acceso por organigrama.',
-    'sa.li4':'El agente no compara ni agrega — responde sobre una persona a la vez. Necesita capacidad de síntesis para ser útil a directores.',
+    'sa.li1t':'Adopción','sa.li1':'Más del <strong>90 % de cumplimiento diario</strong>. El check-in de voz se integró como rutina sin fricción.',
+    'sa.li2t':'Canal de voz','sa.li2':'Estabilidad al <strong>80 %</strong> — cortes por conexión del usuario. Hay que resolver el canal antes de escalar, no el agente.',
+    'sa.li3t':'Gobernanza','sa.li3':'Todos los managers ven todos los datos <strong>sin filtro jerárquico</strong>. Innegociable: control de acceso por organigrama antes de producción.',
+    'sa.li4t':'Capacidades','sa.li4':'El agente <strong>no compara ni agrega</strong> — responde sobre una persona a la vez. Necesita síntesis para ser útil a directores.',
     's12.lbl':'Lo que viene','s12.title':'Tres frentes a la vez.',
     's12.n1':'01 · Idiomas','s12.t1':'Más idiomas',
     's12.d1':'Más idiomas, más variantes culturales y un agente para cada una.',
@@ -1097,10 +1109,10 @@ const i18n = {
     's11.r5':'Vendor lock-in','s11.m5':'No vendor is indispensable: all can be replaced.',
     's11.r6':'Usability','s11.m6':'Agent-initiated calls and notifications.',
     'sa.lbl':'Learnings','sa.title':'What the pilot made clear.',
-    'sa.li1':'Adoption exceeded the target: over 90% daily compliance. The voice check-in became a frictionless routine.',
-    'sa.li2':'Voice channel stability sits at 80% — drops and intermittent silences due to user connection quality. The channel needs fixing before scaling, not the agent.',
-    'sa.li3':'Governance is non-negotiable: all managers see all data with no hierarchy filter. This cannot go to production without org-chart-based access control.',
-    'sa.li4':'The agent does not compare or aggregate — it answers about one person at a time. Synthesis capability is needed to be useful for directors.',
+    'sa.li1t':'Adoption','sa.li1':'Over <strong>90% daily compliance</strong>. The voice check-in became a frictionless routine.',
+    'sa.li2t':'Voice channel','sa.li2':'Stability at <strong>80%</strong> — drops due to user connection quality. The channel needs fixing before scaling, not the agent.',
+    'sa.li3t':'Governance','sa.li3':'All managers see all data <strong>with no hierarchy filter</strong>. Non-negotiable: org-chart-based access control before production.',
+    'sa.li4t':'Capabilities','sa.li4':'The agent <strong>does not compare or aggregate</strong> — one person at a time. Synthesis capability needed to be useful for directors.',
     's12.lbl':"What's next",'s12.title':'Three fronts at once.',
     's12.n1':'01 · Languages','s12.t1':'More languages',
     's12.d1':'More languages, more cultural variants and a dedicated agent for each.',
